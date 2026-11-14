@@ -6,7 +6,7 @@ The Psion netBook came out in 1999 and its software never quite got finished. Co
 
 Most screenshots come from an emulator. If something has been on my real netBook, the entry says so.
 
-There's no ROM, no ROM files and no source code here. Just the writing and the pictures.
+There's no ROM, no ROM files and no source code here. Just the writing and the pictures. That will come once I've got things reasonably stable.
 
 ## Key features
 
