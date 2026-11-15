@@ -20,12 +20,6 @@ The Documents folder, before and after:
 |---|---|
 | ![Psion's Documents folder with Example files and Welcome to netBook](../img/2026-11-12-starting-point/documents-before.png) | ![Coda's Documents folder, empty](../img/2026-11-12-starting-point/documents-after.png) |
 
-And the Extras bar. Comms, Bombs and nFTP are gone, PsiHub and PsiView are in, and nothing that worked before has stopped working.
-
-| Psion | Coda |
-|---|---|
-| ![Psion's Extras bar](../img/2026-11-12-starting-point/extras-before.png) | ![Coda's Extras bar](../img/2026-11-12-starting-point/extras-after.png) |
-
 ## What went in
 
 The Psi programs went in from their published `.sis` files, each converted to a ROM image. On my own netBook I actually keep most of them on the card, where they work under both images, and only PsiHub and PsiStart live in the ROM. The full v1.05(450) build has all of them in the ROM.
