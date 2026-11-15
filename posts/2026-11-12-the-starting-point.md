@@ -10,7 +10,7 @@ I build on a community patched v1.05(450) image from 2005 (c1.60a), which alread
 
 ## What came out
 
-Opera and Java went first, about 4.7 MB between them. On v1.05(254) it's Psion's older Web browser and its engine instead. The Email program went, though the messaging engine underneath stays because Contacts and SMS use it. The old Comms terminal went (its dial-up settings stay), and so did nFTP, which sends passwords in clear, and Bombs. The example files and the "Welcome to netBook" document went too.
+Opera and Java went first, about 4.7 MB between them. On v1.05(254) it's Psion's older Web browser and its engine instead. The Email program went, though the messaging engine underneath stays because Contacts and SMS use it. The old Comms terminal went (its dial-up settings stay), and so did nFTP, which sends passwords in clear. The example files and the "Welcome to netBook" document went too.
 
 On 14 November the fax programs followed. I can't remember the last time anyone faxed from a netBook. Their engine, printer driver and templates went with them.
 
