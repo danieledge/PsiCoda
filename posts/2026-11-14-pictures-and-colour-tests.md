@@ -6,11 +6,11 @@ The netBook shows 256 colours at once, picked from 4,096 (each palette entry has
 
 ## Colour test
 
-Colour test is a scratch program I install from the card. It isn't part of Coda. Versions 0.01 to 0.06 tried a few things on my netBook.
+Colour test is a scratch program I install from the card. It isn't part of Coda. Versions 0.01 to 0.06 tried a few things.
 
 The screen controller has a 12 bit mode, 4,096 colours at once, and it does work. But it flickered, and side by side it didn't look much better than 256 well chosen colours. Getting back out of it meant switching the screen off and on, and the little driver I wrote for that left the screen blank. So that idea's dead.
 
-The one that worked was showing a photo first in EPOC's fixed palette and then in 256 colours chosen for that photo. On the real panel the second was clearly better.
+The one that worked was showing a photo first in EPOC's fixed palette and then in 256 colours chosen for that photo. On the panel the second was clearly better.
 
 Later versions compared font rendering (see [Fonts](2026-11-14-fonts.md)) and added a page that just shows EPOC's own palette, so I could see which entries shimmer. The controller's frame by frame dithering can't tell the top two of its 16 levels apart, and some of EPOC's in between greys sit awkwardly on its steps. That's where the [colour rule](2026-11-14-colour-everywhere.md#the-rule-for-colours) for the themes came from.
 
@@ -35,7 +35,3 @@ The test photo is Kodak's parrots, the usual test image.
 PsiStart also listens for a screenshot key, Ctrl+Fn+P by default, which you can change in the Control panel's Screenshot. It saves the whole screen as a PNG on the card.
 
 ![The Screenshot dialog](../img/2026-11-14-small-additions/screenshot-key.png)
-
-## Where it's at
-
-Colour test has been on my netBook, and the 12 bit idea is dropped. The photo test PsiView grew out of was seen on the real panel. PsiView itself and the screenshot key are tested in the emulator.

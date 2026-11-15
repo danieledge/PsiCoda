@@ -4,8 +4,6 @@
 
 I went through every built in program looking for places where the jump from the Series 5 shows. These are the ones I've fixed so far. Every patch finds its target by what's there and leaves it alone if it doesn't look exactly right, so a different ROM release won't get mangled.
 
-All of it is tested in the emulator on v1.05(450) and built for v1.05(254), which the emulator won't boot. None of it has been on my netBook yet.
-
 ## The desk behind Calc, Record and Spell
 
 Calc and Record still draw their Series 5 layouts, 640 x 240, in the middle of the screen. Psion filled the space around them with a tile of random teal dots on white, which on the netBook's panel fizzes like a badly tuned telly. It's now plain, in the theme's background colour, in all three places the tile turns up.
@@ -52,7 +50,7 @@ Time's map was bright green on navy in 16 colours, with coastlines like a stairc
 
 ## The Year planner's hatching
 
-Agenda's Year planner crossed out every past day with diagonal lines, so by November most of the year was a dense hatch. The lines turned out to be a zigzag drawn in code, which I found by switching off Agenda's line drawing calls one at a time in the emulator until they disappeared. The diagonal step now just moves the pen, and past days get a plain light grey.
+Agenda's Year planner crossed out every past day with diagonal lines, so by November most of the year was a dense hatch. The lines turned out to be a zigzag drawn in code, which I found by switching off Agenda's line drawing calls one at a time until they disappeared. The diagonal step now just moves the pen, and past days get a plain light grey.
 
 | Psion | Coda |
 |---|---|

@@ -43,7 +43,3 @@ The sixth theme, and the default since the 14th. It's Psion's colours with a pal
 ## The rule for colours
 
 The netBook has a passive colour panel, and its controller dithers between levels frame by frame, so some colours shimmer. I stick to the 6 x 6 x 6 cube for themes and new pictures (red, green and blue each a multiple of 33 in hex). EPOC's palette has those exactly and they're the ones the panel shows steadily. EPOC's 40 extra entries, like the greys between the cube's steps, I leave alone. This came out of the [colour tests](2026-11-14-pictures-and-colour-tests.md).
-
-## Where it's at
-
-All of this is tested in the emulator across the six themes, with Classic pixel for pixel the same as Psion's. Choosing a theme on the netBook itself works on my machine.

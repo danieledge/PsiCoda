@@ -4,8 +4,6 @@ Finishing what Psion didn't.
 
 The Psion netBook came out in 1999 and its software never quite got finished. Coda is my edition of its operating system, with the rough edges I keep tripping over sorted out one at a time. This is the diary of that work. Each entry has screenshots of the bit that changed, cropped and blown up, with Psion's original next to mine where there is one.
 
-Most screenshots come from an emulator. If something has been on my real netBook, the entry says so.
-
 There's no ROM, no ROM files and no source code here. Just the writing and the pictures. That will come once I've got things reasonably stable.
 
 ## Key features
@@ -20,7 +18,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **PsiView**, which shows each photo in 256 colours picked for that photo. [More](posts/2026-11-14-pictures-and-colour-tests.md)
 - **A tidy up of the bits that were rushed in 1999**, from the fizzy dotted desk behind Calc to Time's lurid world map. [More](posts/2026-11-14-the-review.md)
 
-Every change is listed in [STATUS.md](STATUS.md), with where it's at and a screenshot.
+Every change is listed in [STATUS.md](STATUS.md), with a screenshot.
 
 ## The netBook
 
@@ -56,17 +54,14 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 14 November 2026 | [The name: Coda](posts/2026-11-14-the-name-coda.md) |
 | 14 November 2026 | [What is next](posts/2026-11-14-what-is-next.md) |
 
-## Emulator or the real thing
-
-I try most things in a netBook emulator first, booting the same `OS.IMG` the card holds. It doesn't model the panel's colours, its timing or the backlight, and it can't see programs on the card, so some things only get properly checked on my own machine. My netBook runs v1.05(254). The emulator only boots v1.05(450), so that's what most of the screenshots show.
 
 ## Adding an entry
 
 Note to self, for keeping this going:
 
-1. Take screenshots in the emulator, crop to the bit that changed and scale it up 2x with nearest neighbour. Put Psion's version next to it if there is one.
+1. Take screenshots, crop to the bit that changed and scale it up 2x with nearest neighbour. Put Psion's version next to it if there is one.
 2. Save them as palette PNGs in `img/YYYY-MM-DD-slug/`, and keep them small.
-3. Write `posts/YYYY-MM-DD-slug.md`: what bugged me, what I did, and where it's been tested.
+3. Write `posts/YYYY-MM-DD-slug.md`: what bugged me and what I did.
 4. Add a row to STATUS.md for each change and the post to the table above.
 5. Before committing, check the text and every image for names, addresses and paths that shouldn't be public.
 

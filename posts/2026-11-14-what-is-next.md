@@ -8,7 +8,7 @@ C: is the netBook's working disk, and it lives in RAM. A flat battery, or loadin
 
 The next version keeps up to three dated backups. Each one is written to a temporary folder first and every file read back and checked before it's given its proper name, and the oldest is only removed once the new one is complete. If C: suddenly looks much smaller than the last backup, it warns you before going ahead. PsiTerm's keys and saved passwords stay off the card. Restoring copies a backup over C: and deletes nothing.
 
-The logic and its tests on the PC are done. The netBook side is in progress.
+The logic is done. The netBook side is in progress.
 
 ## A full screen calculator
 
@@ -16,4 +16,4 @@ Calc still draws its Series 5 layout in the middle of the screen. I've designed 
 
 ## Odds and ends
 
-The Coda wallpaper and the renames. Colour icons for my programs, as each gets a new release. The redrawn grey pictures, once I've signed them off. And photos from the real netBook for everything that's only been seen in the emulator so far.
+The Coda wallpaper and the renames. Colour icons for my programs, as each gets a new release. The redrawn grey pictures, once I've signed them off.

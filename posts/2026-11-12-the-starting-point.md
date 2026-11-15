@@ -59,7 +59,3 @@ Each one starting up on a fresh card:
 ![PsiTerm's SSH server dialog](../img/2026-11-12-starting-point/psiterm.png)
 
 The Control panel's Applications page still talked about the "Email" and "Opera" icons. I fixed that later, in [the review](2026-11-14-the-review.md#stale-names).
-
-## Where it's at
-
-The first image booted in the emulator on 12 November, with PsiHub answering Ctrl+Menu straight away and Opera and Email gone. By the 13th PsiMail, PsiWeb, PsiTerm and PsiLinux were all running from the ROM in the emulator. My netBook runs my v1.05(254) build with the Psi programs on its card.

@@ -10,15 +10,13 @@ It's on by default (PsiStart switches it on the first time a new C: starts), and
 
 ![The SerialBoost dialog](../img/2026-11-14-small-additions/serialboost.png)
 
-My netBook pulls its card updates through a Wi-Fi modem at 230,400.
-
 ## Internet time
 
 Control panel > Internet time sets the clock from a time server once a day while Psion Internet is connected, and flips summer time on and off on the right dates for every city in World. Set now does it immediately.
 
 ![The Internet time dialog](../img/2026-11-14-small-additions/internet-time.png)
 
-It can also work out your time zone. It asks a public geolocation service where the netBook's internet address is, then picks the matching city from World's own list. That means telling a third party your public address, so it's off by default. I tested the city picking on the PC against all 731 of the netBook's cities, and in the emulator with canned answers for Paris, Leeds, New York and the Marquesas. I haven't tried it against a real answer over a real connection yet.
+It can also work out your time zone. It asks a public geolocation service where the netBook's internet address is, then picks the matching city from World's own list. That means telling a third party your public address, so it's off by default.
 
 ## Spelling
 
@@ -37,7 +35,3 @@ Word's Zoom in and Zoom out only had four sizes, hard coded. I'm adding 1250 and
 ## First start settings
 
 On a fresh C:, PsiStart turns the PC link and key clicks off and SerialBoost and Internet time on. When it works there's nothing to see, the netBook just starts up that way, and you can change any of them back in the Control panel.
-
-## Where it's at
-
-SerialBoost is on my netBook. Internet time, spelling and the first start settings are tested in the emulator, and the time zone lookup only with test answers. Word's zoom isn't finished.

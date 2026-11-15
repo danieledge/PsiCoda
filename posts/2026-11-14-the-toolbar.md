@@ -35,7 +35,3 @@ You can hide any of the three lines:
 ![The Toolbar dialog](../img/2026-11-14-the-toolbar/toolbar-control-panel.png)
 
 Hide all three and it takes no room and runs nothing.
-
-## Where it's at
-
-All tested in the emulator on v1.05(450), and built for v1.05(254). How bright each step really is, and what voltages a real battery reports, I'll only know on the netBook.
