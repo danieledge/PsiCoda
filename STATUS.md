@@ -58,6 +58,7 @@ Everything Coda changes, one row each, with a screenshot of the bit that changed
 | Smooth text | One-bit letters only. | Optional smoothing for Psion's font, several styles. Off as standard. | <a href="img/2026-11-14-fonts/text-dialog.png"><img src="img/2026-11-14-fonts/text-dialog.png" width="200" alt="Smooth text"></a> | [post](posts/2026-11-14-fonts.md) |
 | Internet service name | Control panel > Internet named the dial-up service "Dummy". | Named "Modem". | <a href="img/2026-11-15-polish/internet-before.png"><img src="img/2026-11-15-polish/internet-before.png" width="140" alt="Internet service name"></a> <a href="img/2026-11-15-polish/internet-after.png"><img src="img/2026-11-15-polish/internet-after.png" width="140" alt="Internet service name"></a> | [post](posts/2026-11-14-the-review.md) |
 | About netBook | "Worldwide patents pending". | The build's date and number. | <a href="img/2026-11-15-polish/about-before.png"><img src="img/2026-11-15-polish/about-before.png" width="140" alt="About netBook"></a> <a href="img/2026-11-15-polish/about-after.png"><img src="img/2026-11-15-polish/about-after.png" width="140" alt="About netBook"></a> | [post](posts/2026-11-14-the-review.md) |
+| Clock type | "Analog" in Time and the Shell. | "Analogue". | <a href="img/2026-11-15-polish/clock-type.png"><img src="img/2026-11-15-polish/clock-type.png" width="200" alt="Clock type"></a> | [post](posts/2026-11-14-the-review.md) |
 
 ## Pictures
 
