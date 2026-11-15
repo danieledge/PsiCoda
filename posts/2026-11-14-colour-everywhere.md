@@ -16,8 +16,6 @@ And how it looks now: Psion's System screen, then mine in the standard theme and
 
 ![The top of the toolbar: Psion, Coda, Coda Dark, for the System screen and Word](../img/2026-11-14-colour-everywhere/toolbar-top.png)
 
-My own programs use a plain label for their names, so theirs are still black. That's a job for each program.
-
 ## The Documents bar
 
 The strip down the left of the System screen stayed navy regardless. It isn't actually a colour, it's two little tiled pictures. The image builder finds them and paints them in the theme's colours, and PsiStart repaints them if you change theme on the netBook. Psion, then my standard theme (which keeps Psion's navy), then Dark:

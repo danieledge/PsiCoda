@@ -66,8 +66,4 @@ Word's toolband chopped the font name to "Times New Rom". The style list next to
 
 ## Fax programs removed
 
-Once Email was gone, the Fax editor and Fax viewer crashed at start. Nobody faxes from a netBook these days, so they went, along with their engine, printer driver and templates. Nothing else depended on them: the Extras bar and Contacts carry on as before (see [the starting point](2026-11-12-the-starting-point.md)).
-
-## Looked at, left alone
-
-The Browse dialog cuts long names off without a "...". Its widths are in code rather than a resource, so I haven't touched it yet. Sketch's colour picker only offers EPOC's 16 old colours, and those come from code too. Sketch files are 16 colour drawings, so giving it more colours would mean rewriting part of Sketch and making files other machines can't open. Not doing that.
+Nobody faxes from a netBook these days, so the Fax editor and Fax viewer went, along with their engine, printer driver and templates. Nothing else depended on them: the Extras bar and Contacts carry on as before (see [the starting point](2026-11-12-the-starting-point.md)).

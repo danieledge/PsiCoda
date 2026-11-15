@@ -20,4 +20,4 @@ Each one is drawn in the image's theme, and if you change theme on the netBook P
 
 ## New names
 
-With the [rename to Coda](2026-11-14-the-name-coda.md) they become Coda (a new design built around a coda sign, which I'm still drawing), Coda psi, Coda hills and Coda sweep. The screenshots above still have the old names.
+With the [rename to Coda](2026-11-14-the-name-coda.md) they become Coda (a new design built around a coda sign), Coda psi, Coda hills and Coda sweep. The screenshots above still have the old names.

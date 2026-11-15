@@ -28,4 +28,4 @@ The patch checks the bytes before it touches them and finds its addresses by wha
 
 PsiBoot isn't in the ROM. It lives on the card so it's there whichever image is running, and it switches between Psion's image and Coda. The bootloader only ever looks for `D:\OS.IMG`, so the image you're not using waits under another name and PsiBoot works out which is which from their contents. Before a switch it offers to back up C:, and afterwards it offers to put it back.
 
-On the 14th PsiBoot also got File > Update the card, which downloads only the changed bits of a new image. My first go fetched the files and then didn't put them in place, so now it keeps a step by step log and next time I'll know why.
+On the 14th PsiBoot also got File > Update the card, which downloads only the changed bits of a new image and keeps a step by step log as it goes.

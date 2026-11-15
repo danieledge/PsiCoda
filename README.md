@@ -52,7 +52,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 14 November 2026 | [Small additions](posts/2026-11-14-small-additions.md) |
 | 14 November 2026 | [A Linux terminal](posts/2026-11-14-terminal.md) |
 | 14 November 2026 | [The name: Coda](posts/2026-11-14-the-name-coda.md) |
-| 14 November 2026 | [What is next](posts/2026-11-14-what-is-next.md) |
+| 14 November 2026 | [Safer backups](posts/2026-11-14-safer-backups.md) |
 
 
 ## Adding an entry

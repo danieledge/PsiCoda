@@ -20,8 +20,6 @@ With nothing else open it just tells you so:
 
 ![PsiHub with no other programs open](../img/2026-11-14-psihub-and-psistart/psihub-empty.png)
 
-I hit one nasty bug: typing in the panel could crash it with KERN-EXEC 3. I'd taken a command out of a list and left the count at 10, so every search read one entry off the end. The counts come from the lists themselves now.
-
 PsiHub should also install on its own, on Psion's image or a Series 5mx, as a plain launcher without Coda's extras.
 
 ## PsiStart
@@ -36,4 +34,4 @@ There's nothing to see of PsiStart itself, only what it does. Here a Classic ima
 
 It uses about 40 KB of memory, and its code runs straight from the ROM.
 
-Related fix: the Shell only ran its start up list on the very first start of a new C:. After a warm restart nothing started, PsiHub included. A small patch makes it run the list every time.
+Psion's Shell ran its start up list only on the very first start of a new C:. A small patch makes it run the list every time, so PsiHub is there after a warm restart too.

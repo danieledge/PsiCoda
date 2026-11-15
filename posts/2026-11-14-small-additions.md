@@ -30,7 +30,7 @@ Typing "website" and hitting Spell, in Psion's Word and in mine:
 
 ## Word's zoom
 
-Word's Zoom in and Zoom out only had four sizes, hard coded. I'm adding 1250 and 2000 to make six. Still in progress.
+Word's Zoom in and Zoom out had four sizes, hard coded. I added 1250 and 2000 to make six.
 
 ## First start settings
 
