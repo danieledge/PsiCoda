@@ -60,6 +60,7 @@ Everything Coda changes, one row each, with a screenshot of the bit that changed
 | About netBook | "Worldwide patents pending". | The build's date and number. | <a href="img/2026-11-15-polish/about-before.png"><img src="img/2026-11-15-polish/about-before.png" width="140" alt="About netBook"></a> <a href="img/2026-11-15-polish/about-after.png"><img src="img/2026-11-15-polish/about-after.png" width="140" alt="About netBook"></a> | [post](posts/2026-11-14-the-review.md) |
 | Clock type | "Analog" in Time and the Shell. | "Analogue". | <a href="img/2026-11-15-polish/clock-type.png"><img src="img/2026-11-15-polish/clock-type.png" width="200" alt="Clock type"></a> | [post](posts/2026-11-14-the-review.md) |
 | Calc's angle unit | "Gradients" for the grad. | "Gradians". | <a href="img/2026-11-15-polish/calc-gradians.png"><img src="img/2026-11-15-polish/calc-gradians.png" width="200" alt="Calc's angle unit"></a> | [post](posts/2026-11-14-the-review.md) |
+| Battery texts | "12.6v", and "Batteries too low" for the one battery pack. | "12.6V"; "Battery too low", "Main battery too low for backlight". | <a href="img/2026-11-15-polish/battery-before.png"><img src="img/2026-11-15-polish/battery-before.png" width="140" alt="Battery texts"></a> <a href="img/2026-11-15-polish/battery-after.png"><img src="img/2026-11-15-polish/battery-after.png" width="140" alt="Battery texts"></a> | [post](posts/2026-11-14-the-review.md) |
 
 ## Pictures
 
