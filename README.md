@@ -54,6 +54,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 14 November 2026 | [The name: Coda](posts/2026-11-14-the-name-coda.md) |
 | 14 November 2026 | [Safer backups](posts/2026-11-14-safer-backups.md) |
 | 15 November 2026 | [PsiCalc](posts/2026-11-15-psicalc.md) |
+| 15 November 2026 | [PsiSketch](posts/2026-11-15-psisketch.md) |
 
 
 ## Adding an entry
