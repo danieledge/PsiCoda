@@ -84,6 +84,7 @@ Everything Coda changes, one row each, with a screenshot of the bit that changed
 | First-start settings | PC link and key clicks on; new features off. | On a new C:, PC link and clicks off, SerialBoost and Internet time on. Nothing to see but the settings. | <a href="img/2026-11-14-small-additions/serialboost.png"><img src="img/2026-11-14-small-additions/serialboost.png" width="200" alt="First-start settings"></a> | [post](posts/2026-11-14-small-additions.md) |
 | Screenshot key | No way to capture the screen. | Ctrl+Fn+P saves a PNG; the key chosen in the Control panel. | <a href="img/2026-11-14-small-additions/screenshot-key.png"><img src="img/2026-11-14-small-additions/screenshot-key.png" width="200" alt="Screenshot key"></a> | [post](posts/2026-11-14-pictures-and-colour-tests.md) |
 | Warm restart | A new theme needed a restart that kept C:. | Programs save and close, then a warm reset that keeps C:. | nothing to show yet | [post](posts/2026-11-13-themes-and-the-name-tap.md) |
+| Units | Psion's English build started with every unit imperial. | At first start: metric for short distances and the rest, miles for long distances, as in the UK. A restored C: keeps its own. | <a href="img/2026-11-15-polish/units-before.png"><img src="img/2026-11-15-polish/units-before.png" width="140" alt="Units"></a> <a href="img/2026-11-15-polish/units-after.png"><img src="img/2026-11-15-polish/units-after.png" width="140" alt="Units"></a> | [post](posts/2026-11-14-small-additions.md) |
 
 ## On the card, not in the ROM
 
