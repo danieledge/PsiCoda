@@ -40,6 +40,13 @@ By 14 November the Control panel had picked up Text, Icons, Screenshot, Toolbar,
 
 ## What replaced what
 
+| Psion's program | Coda's |
+|---|---|
+| Email | PsiMail |
+| Opera (v1.05(450)), Web (v1.05(254)) | PsiWeb |
+| Comms | PsiTerm |
+| nFTP | PsiTerm's SFTP |
+
 The netBook's toolbar has icons for Email and the web browser. In Coda they open my programs instead.
 
 PsiMail replaces Psion's Email. It does IMAP and SMTP over TLS, checks the server's certificate, and keeps a CalDAV calendar in step with Agenda. PsiWeb replaces the browser (Opera on v1.05(450), Psion's Web on v1.05(254)). It's built on Links 2 and on the netBook it runs in colour across the whole 640 x 480 screen, with a toolband for Back, Forward, Reload and the address. PsiTerm replaces the Comms terminal with SSH, SFTP and tmux support.
