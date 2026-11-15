@@ -56,6 +56,7 @@ Everything Coda changes, one row each, with a screenshot of the bit that changed
 | Word's zoom | Four zoom steps. | Six: 1250 and 2000 added. | nothing to show yet | [post](posts/2026-11-14-small-additions.md) |
 | Font choice | One system font. | Psion's, Inter, Noto Sans or DejaVu Sans in Control panel > Text. Psion's font remains the standard. | <a href="img/2026-11-14-fonts/menus.png"><img src="img/2026-11-14-fonts/menus.png" width="200" alt="Font choice"></a> | [post](posts/2026-11-14-fonts.md) |
 | Smooth text | One-bit letters only. | Optional smoothing for Psion's font, several styles. Off as standard. | <a href="img/2026-11-14-fonts/text-dialog.png"><img src="img/2026-11-14-fonts/text-dialog.png" width="200" alt="Smooth text"></a> | [post](posts/2026-11-14-fonts.md) |
+| Internet service name | Control panel > Internet named the dial-up service "Dummy". | Named "Modem". | <a href="img/2026-11-15-polish/internet-before.png"><img src="img/2026-11-15-polish/internet-before.png" width="140" alt="Internet service name"></a> <a href="img/2026-11-15-polish/internet-after.png"><img src="img/2026-11-15-polish/internet-after.png" width="140" alt="Internet service name"></a> | [post](posts/2026-11-14-the-review.md) |
 
 ## Pictures
 
