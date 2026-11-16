@@ -6,7 +6,7 @@ The netBook loads its whole operating system from the card at every cold start, 
 
 So the first job was a tool to take Psion's image apart, change it and put it back together. That was fiddlier than it sounds. Every program in the image is an execute in place ROM image rather than a normal program file, and if you drop a normal one in, the boot stops with "Bad request". The tool now converts each new program into a ROM image at the address it will live at, with its imports wired up to the DLLs already there. The kernel also reads the ROM's folder tree in place, so the original folder blocks have to stay put and new files get squeezed into whatever space the removals free up.
 
-I build on a community patched v1.05(450) image from 2005 (c1.60a), which already fixes colour icons, the console and a few other things. My own netBook runs v1.05(254), and Coda builds on that as well.
+I build on a community patched v1.05(450) image from 2005: c1.60a, by Poke of the Czech group Patisoners. It already fixes colour icons, the console and a few other things. Coda builds on v1.05(254) as well.
 
 ## What came out
 

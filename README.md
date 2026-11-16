@@ -64,6 +64,10 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 16 November 2026 | [Office files, the new Record, and PsiMail on the netBook](posts/2026-11-16-office-files-and-record.md) |
 
 
+## Thanks
+
+Coda starts from c1.60a, the 2005 bug-fix patch for the netBook's last image, by Poke of Patisoners (Brno, Czech Republic). It fixed colour icons on the System screen, the installer's icon, the OPL toolbar's battery and the console's text selection, and added a colour console and the Z: drive in the file list.
+
 ## Adding an entry
 
 Note to self, for keeping this going:
