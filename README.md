@@ -14,7 +14,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **Six colour themes**, picked in the Control panel with a preview. The toolbar name box, the Documents bar, the wallpaper and both clocks all follow along. [More](posts/2026-11-14-colour-everywhere.md)
 - **A clock you can read**, cream rather than yellow by default. [More](posts/2026-11-14-the-clock.md)
 - **Battery percentage, free memory and a brightness control** on every toolbar. [More](posts/2026-11-14-the-toolbar.md)
-- **SerialBoost**, which runs the serial port at 230,400 bps, twice what Psion allowed. On by default. [More](posts/2026-11-14-small-additions.md#serialboost)
+- **SerialBoost**, which runs the serial port at 230,400 bps, twice what Psion allowed. On by default, as Serial speed in the Control panel. [More](posts/2026-11-14-small-additions.md#serialboost)
 - **PsiView**, which shows each photo in 256 colours picked for that photo. [More](posts/2026-11-14-pictures-and-colour-tests.md)
 - **A tidy up of the bits that were rushed in 1999**, from the fizzy dotted desk behind Calc to Time's lurid world map. [More](posts/2026-11-14-the-review.md)
 
@@ -56,6 +56,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 15 November 2026 | [PsiCalc](posts/2026-11-15-psicalc.md) |
 | 15 November 2026 | [PsiSketch](posts/2026-11-15-psisketch.md) |
 | 15 November 2026 | [Record and Spell](posts/2026-11-15-record-and-spell.md) |
+| 16 November 2026 | [First impressions](posts/2026-11-16-first-impressions.md) |
 
 
 ## Adding an entry
