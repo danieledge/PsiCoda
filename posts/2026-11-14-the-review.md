@@ -12,7 +12,7 @@ Calc and Record still draw their Series 5 layouts, 640 x 240, in the middle of t
 |---|---|
 | ![Calc on Psion's dotted desk](../img/2026-11-14-review/desk-before.png) | ![Calc on a plain desk](../img/2026-11-14-review/desk-after.png) |
 
-A proper full screen calculator is on the list for later.
+Calc itself now fills the screen: see [PsiCalc](2026-11-15-psicalc.md).
 
 ## Stale names
 

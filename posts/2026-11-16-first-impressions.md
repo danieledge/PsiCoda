@@ -85,7 +85,3 @@ The netBook keeps your files in memory. A flat battery or a cold start loses wha
 | Before | Now |
 |---|---|
 | ![Previou](../img/2026-11-16-first-impressions/psiview-toolbar-before.png) | ![Previous](../img/2026-11-16-first-impressions/psiview-toolbar-after.png) |
-
-## Not yet
-
-Jotter, Contacts and the OPL editor still use their Series 5 layouts. They are bigger jobs and come next. The new Control panel icons still don't match Psion's shaded style.
