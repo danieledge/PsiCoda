@@ -51,12 +51,12 @@ The netBook's toolbar has icons for Email and the web browser. In Coda they open
 
 PsiMail replaces Psion's Email. It does IMAP and SMTP over TLS, checks the server's certificate, and keeps a CalDAV calendar in step with Agenda. PsiWeb replaces the browser (Opera on v1.05(450), Psion's Web on v1.05(254)). It's built on Links 2 and on the netBook it runs in colour across the whole 640 x 480 screen, with a toolband for Back, Forward, Reload and the address. PsiTerm replaces the Comms terminal with SSH, SFTP and tmux support.
 
-Each one starting up on a fresh card:
+Each one at work:
 
-![PsiMail asking for an account on first start](../img/2026-11-12-starting-point/psimail.png)
+![PsiMail's inbox with a preview of the chosen message](../img/2026-11-12-starting-point/psimail.png)
 
 ![PsiWeb's welcome page](../img/2026-11-12-starting-point/psiweb.png)
 
-![PsiTerm's SSH server dialog](../img/2026-11-12-starting-point/psiterm.png)
+![PsiTerm connecting to a server over SSH](../img/2026-11-12-starting-point/psiterm.png)
 
 The Control panel's Applications page still talked about the "Email" and "Opera" icons. I fixed that later, in [the review](2026-11-14-the-review.md#stale-names).
