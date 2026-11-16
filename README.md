@@ -11,6 +11,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **PsiHub.** Press Ctrl+Menu in any program and a small panel pops up. With nothing typed it flips between programs, most recent first. Start typing and it finds programs, settings, files and commands, and learns what you use. [More](posts/2026-11-14-psihub-and-psistart.md)
 - **A Linux terminal.** PsiLinux runs Alpine Linux on the netBook, in colour. Type `term` into PsiHub and you're at a shell. [More](posts/2026-11-14-terminal.md)
 - **Office files on the netBook.** Word opens and saves .docx, .doc, .rtf, .odt and .txt, and Sheet .xlsx, .xls, .ods and .csv. Tap one on the System screen and it opens. [More](posts/2026-11-16-office-files-and-record.md)
+- **Print to PDF.** "PDF file" is in every program's list of printers, and printing to it saves a PDF beside the document, with real text. [More](posts/2026-11-16-print-to-pdf.md)
 - **Calc, Sketch and Record made again for the whole screen**, with Psion's menus, keys and files. Sketch has all 256 colours, Record a waveform and selections. [More](posts/2026-11-15-psisketch.md)
 - **Saving as you go.** Word and Sheet save your changes every 5 minutes. [More](posts/2026-11-16-first-impressions.md)
 - **Proper replacements for the old programs.** PsiMail instead of Psion's Email, PsiWeb instead of the web browser, PsiTerm instead of the old Comms terminal. [More](posts/2026-11-12-the-starting-point.md#what-replaced-what)
