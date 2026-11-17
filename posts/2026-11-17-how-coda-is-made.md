@@ -171,6 +171,18 @@ Changing Psion's programs is only part of it. Here is every kind of change Coda 
 | Programs started at boot | the hidden helper that sets up themes, alarms, Internet time | at build, runs every start |
 | Changes made while running | repainting the clock in the chosen theme, the Control panel's choices | on the netBook, through a kernel driver of Coda's own |
 
+### Psion's colours, seen for the first time
+
+One of my favourite changes is also one of the smallest. Psion designed the netBook's buttons and Find bar in soft blue-greys that the screen hardware, as EPOC set it up, couldn't show, so every netBook since 1999 has shown the nearest colours it had instead. Coda changes four numbers in the screen's own colour palette so those colours finally appear as Psion meant them. The middle column is what every netBook has shown until now; the right-hand one is what yours shows with Coda:
+
+![Psion's colours, EPOC's nearest and Coda's tuned palette](../img/2026-11-17-how-coda-is-made/palette-tune.png)
+
+Calc's toolbar buttons before and after: the face back to Psion's soft blue-grey, and the pressed button to its deep blue.
+
+<a href="../img/2026-11-15-exact-colours/buttons-before.png"><img src="../img/2026-11-15-exact-colours/buttons-before.png" width="140" alt="Calc's buttons in EPOC's colours"></a> <a href="../img/2026-11-15-exact-colours/buttons-after.png"><img src="../img/2026-11-15-exact-colours/buttons-after.png" width="140" alt="Calc's buttons with the palette tuned"></a>
+
+Which is pretty cool: colours designed in 1999 that nobody ever actually saw on a netBook, shown properly for the first time. The technical detail is in "colours, the palette and the themes" below.
+
 <details>
 <summary><b>Technical detail: device drivers, and SerialBoost</b></summary>
 
@@ -236,16 +248,6 @@ Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
 | 6666cc, a set button | 888899 | 8282a0 |
 | 666699, a pressed button | 555599 | 5050a0 |
 | ccffff, the Find bar and Sheet's headings | ccddff | cde8fe |
-
-Here's what that means, colour by colour. The middle column is what every netBook has shown since 1999; the right-hand one is what yours shows with Coda:
-
-![Psion's colours, EPOC's nearest and Coda's tuned palette](../img/2026-11-17-how-coda-is-made/palette-tune.png)
-
-And on screen, Calc's toolbar buttons before and after. The face is back to Psion's soft blue-grey, and the pressed button to its deep blue:
-
-<a href="../img/2026-11-15-exact-colours/buttons-before.png"><img src="../img/2026-11-15-exact-colours/buttons-before.png" width="140" alt="Calc's buttons in EPOC's colours"></a> <a href="../img/2026-11-15-exact-colours/buttons-after.png"><img src="../img/2026-11-15-exact-colours/buttons-after.png" width="140" alt="Calc's buttons with the palette tuned"></a>
-
-Which is pretty cool: colours Psion designed in 1999 and nobody ever actually saw on a netBook, shown properly for the first time, by changing four numbers in the screen hardware.
 
 The Find bar goes to ccddff, not the closer-looking cceeff, because the SA-1100's dithering shows 14 and 15 alike on a channel, so cceeff would look exactly like ccffff.
 
