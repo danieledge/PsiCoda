@@ -194,7 +194,54 @@ Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
 - At build time mkimage notes where every picture it may want to recolour sits in the image (the clock faces, the digital clock's colours, the Documents bar, the wallpaper, the desks, the Extras bar) and writes the list into a data file in the ROM.
 - At start, and every five minutes after, the hidden start-up helper repaints those in the theme chosen now, through the driver. So a theme chosen on the netBook takes effect without rebuilding the image.
 - The Control panel's Icons and Programs choices change the ROM in memory the same way, a byte at a time and only where the bytes are exactly as expected. They also change OS.IMG on the card, but only if its header and that exact place match, so the choice survives the next time the image is loaded. The System screen reads its lists as it starts, so they offer a warm restart.
-- The palette tune: on the Classic and Coda themes, four entries of EPOC's colour palette are nudged to the nearest colour the netBook's 12-bit screen can show to Psion's intended ones.
+- The palette tune changes the screen's colours directly too: see the next section.
+</details>
+
+<details>
+<summary><b>Technical detail: colours, the palette and the themes</b></summary>
+
+**How the netBook makes colour.** The screen is 640 x 480, a passive colour panel run in dual-scan mode by the StrongARM SA-1100's LCD controller. EPOC drives it at 8 bits a pixel (`WINDOWMODE COLOR256`), so every pixel is an index into a palette of 256 entries. Each palette entry is 12 bits: 4 bits each of red, green and blue, so the panel can show 4,096 colours in all, 256 at a time. The controller reads the palette from memory just in front of the frame buffer, 512 bytes, on every frame. Entry 0's top bits also hold the pixel size.
+
+**EPOC's 256 colours.** EPOC fills that palette with its own fixed set. Most of it is the 6 x 6 x 6 colour cube, every mix of red, green and blue at 00, 33, 66, 99, cc and ff, with extra greys and a few others in the rest. Any colour a program asks for that isn't one of the 256 is shown as the nearest one that is. Each entry's channels are multiples of 0x11 at 4 bits, so 33 is shown as 3 and cc as c.
+
+**Where the scheme lives.** The colours of menus, dialogs, buttons, toolbars and highlights are a list in EikPriv.RSC: 56 entries of { logical colour; red, green, blue }, once for grey screens and once for colour. Entries 0 to 52 are EIKON's logical colours (window background, dialog title, button face, menu highlight and so on); 53 to 55 are three of the netBook's own: the ground behind the toolbar's program name, the Find bar in Data and Contacts, and an orange. Eikon reads this file from the ROM at a fixed path, so the build rewrites the list in place, same size, nothing else moving. Which logical colour draws what was found in the emulator by giving each of the 56 a different colour and reading the screen back.
+
+**The themes**, picked from the cube wherever the look allows, so they show without dithering:
+
+| Theme | Titles | Toolbar | Highlight | Buttons (face / set / pressed) | Clock face |
+|---|---|---|---|---|---|
+| Coda (standard) | Psion's navy | Psion's | navy 000080, white text | 9999cc / 6666cc / 666699 | cream ffffcc |
+| Classic | Psion's navy | Psion's | black | 9999cc / 6666cc / 666699 | yellow ffff00 |
+| Slate | 003366 | 336699 | 3399ff | cccccc / 99ccff / 6699cc | white |
+| Graphite | 333333 | 333333 | orange ff6600 | 999999 / ffcc99 / ff9933 | cccccc |
+| Teal | 006666 | 336666 | 33cccc | cccccc / 99cccc / 669999 | ccffff |
+| Dark | 000000 | 000000 | 66ccff | 666666 / 336699 / 003366 | 999999 |
+
+**The problem with Psion's own colours.** Psion's Classic scheme asks for colours that aren't among EPOC's 256, so on a real netBook they never showed as designed:
+
+| What | Psion asked for | EPOC showed |
+|---|---|---|
+| Button face | 9696b4 | 9999cc |
+| A set (latched) button | 8282a0 | 888888 |
+| A pressed button | 5050a0 | 666699 |
+| The Find bar | cde8fe | ccffff |
+
+**The palette tune.** Coda first puts the buttons on one family of cube colours (9999cc, 6666cc, 666699), then changes the panel's own palette entries for those colours to the nearest the 12-bit panel can show of what Psion wanted:
+
+| Palette entry (EPOC's colour) | Now shown as | Psion's colour |
+|---|---|---|
+| 9999cc, the button face | 9999bb | 9696b4 |
+| 6666cc, a set button | 888899 | 8282a0 |
+| 666699, a pressed button | 555599 | 5050a0 |
+| ccffff, the Find bar and Sheet's headings | ccddff | cde8fe |
+
+The Find bar goes to ccddff, not the closer-looking cceeff, because the SA-1100's dithering shows 14 and 15 alike on a channel, so cceeff would look exactly like ccffff.
+
+Because it's the hardware palette, every pixel of that colour changes, in every program and picture. That's why the colours Psion already used were tuned, rather than repointing unused entries: the same colour appears in a few dozen of Psion's own pictures (9999cc in 21, 666699 in 31, ccffff in 15, 6666cc in 6), and each moves by only a step of the same hue. If a game or EPOC itself resets the palette, Classic simply looks as it always did until the next check, never a wrong colour. Smooth text, which blends each letter's edges with the colour beneath, blends with a colour one step away rather than a far one.
+
+**How it's done safely.** The start-up helper runs it at start, every five minutes and when you change the setting, in a thread of its own, so if EPOC ever refused access to screen memory only that thread would end. It writes only when the palette looks like EPOC's 8-bit one (the pixel-size bits right, nothing above bit 11, at least 128 entries exactly EPOC's), and changes an entry only while it holds exactly EPOC's colour (to tune) or exactly the tuned one (to put back). It's all four entries or none, so the buttons are never half one family and half the other. It's on for Classic and Coda only, and "Psion's exact colours" in the Control panel's Themes turns it off. Teal's clock face and the Slate, Teal and Dark backgrounds use those same colours, so it stays off for them.
+
+Tools: **themes** holds every theme and the tune list; **themes-h** writes the same list for Coda's own programs; **themepatch** applies the theme chosen on the netBook; **colourtest**, a test program, measured what the panel really shows.
 </details>
 
 <details>
