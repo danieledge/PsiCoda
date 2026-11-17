@@ -1,0 +1,23 @@
+# Agenda: Quick add and search
+
+Psion's Agenda is a good diary, but adding to it is slow. A lunch next Friday is a new day entry, then the date, the start time, the end time, the text, each in its own line of a dialog. A weekly meeting adds the repeat dialog. A birthday is another kind of entry from another menu.
+
+So Agenda now has Entry > Quick add... (Ctrl+Y). You type the entry the way you would say it:
+
+- lunch with Sam fri 1pm
+- dentist 3 Dec 9:30 for 45 min
+- every Monday 9am standup
+- Sam's birthday 12 March
+- todo buy milk
+
+As you type, the dialog shows the title it has taken and when the entry will be. OK adds it as the right kind of entry (a day entry with a time, an event without one, an anniversary for a birthday, a to-do after "todo") with its repeat, alarm ("alarm 15 min before") and place ("at the Plough"), and Agenda goes to that day. Dates are British: 3/12 is the 3rd of December. A time from 1 to 7 with no am or pm is in the afternoon, and "next Friday" is Friday next week.
+
+It is still Psion's Agenda. The new menu item and the new code sit beside it, and everything it did before works as it did.
+
+PsiHub does the same from anywhere: type the line and the first row is "New Agenda entry: Lunch with Sam" with the time beside it. Enter adds it. PsiHub also finds Agenda's entries now, by any of their words or their place, and Enter opens Agenda at that day.
+
+On a Series 5mx the Agenda is in the ROM, so there is no menu item, but Ctrl+Y in Agenda does the same, and PsiHub's rows work as on the netBook.
+
+![Quick add](../img/2026-11-16-agenda-quickadd/quickadd-dialog.png)
+
+![PsiHub finds an entry](../img/2026-11-16-agenda-quickadd/hub-search.png)

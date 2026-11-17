@@ -15,6 +15,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **PsiAmp**, an MP3 and WAV player in the look of the classic skinned players. It floats over the program in use, and Ctrl+Fn+A brings it up from anywhere. Coda and EPOC skins, and classic .wsz skins of your own. [More](posts/2026-11-16-psiamp-open-with-and-more.md)
 - **Open with.** Fn+Shift+Enter on a file picks the program it opens in, and can remember the choice. [More](posts/2026-11-16-psiamp-open-with-and-more.md#open-with)
 - **Calc, Sketch and Record made again for the whole screen**, with Psion's menus, keys and files. Sketch has all 256 colours, Record a waveform and selections. [More](posts/2026-11-15-psisketch.md)
+- **Agenda in plain English.** Ctrl+Y in Agenda (or PsiHub) and type "lunch with Sam fri 1pm": the entry is made, repeats, alarms and birthdays too. PsiHub finds Agenda's entries. [More](posts/2026-11-16-agenda-quick-add.md)
 - **Saving as you go.** Word and Sheet save your changes every 5 minutes. [More](posts/2026-11-16-first-impressions.md)
 - **Proper replacements for the old programs.** PsiMail instead of Psion's Email, PsiWeb instead of the web browser, PsiTerm instead of the old Comms terminal. [More](posts/2026-11-12-the-starting-point.md#what-replaced-what)
 - **Six colour themes**, picked in the Control panel with a preview. The toolbar name box, the Documents bar, the wallpaper and both clocks all follow along. [More](posts/2026-11-14-colour-everywhere.md)
@@ -66,6 +67,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 16 November 2026 | [Office files, the new Record, and PsiMail on the netBook](posts/2026-11-16-office-files-and-record.md) |
 | 16 November 2026 | [Print to PDF](posts/2026-11-16-print-to-pdf.md) |
 | 16 November 2026 | [PsiAmp, Open with and more](posts/2026-11-16-psiamp-open-with-and-more.md) |
+| 16 November 2026 | [Agenda: Quick add and search](posts/2026-11-16-agenda-quick-add.md) |
 
 
 ## Thanks
