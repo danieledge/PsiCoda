@@ -23,7 +23,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **Calendar and contacts sync.** Sync in the Control panel keeps Agenda and Contacts in step with online calendars and address books. [More](posts/2026-11-17-files-clips-sharing-agenda.md#calendar-and-contacts-sync)
 - **Alarms that stop by themselves**, missed alarms listed at switch-on, and a chime, all in Time's Preferences. [More](posts/2026-11-17-files-clips-sharing-agenda.md#alarms)
 - **Saving as you go.** Word and Sheet save your changes every 5 minutes. [More](posts/2026-11-16-first-impressions.md)
-- **Proper replacements for the old programs.** PsiMail instead of Psion's Email, PsiWeb instead of the web browser, PsiTerm instead of the old Comms terminal. [More](posts/2026-11-12-the-starting-point.md#what-replaced-what)
+- **Proper replacements for the old programs.** PsiMail instead of Psion's Email, PsiWeb instead of the web browser, PsiTerm instead of the old Comms terminal. PsiMail and PsiWeb ask how you get online the first time and set themselves up. PsiWeb opens on a speed dial and has a Reader style; PsiMail shows new mail at once, today's events and your week. [More](posts/2026-11-12-the-starting-point.md#what-replaced-what), [what's new in them](STATUS.md#replaced)
 - **Six colour themes**, picked in the Control panel with a preview. The toolbar name box, the Documents bar, the wallpaper and both clocks all follow along. [More](posts/2026-11-14-colour-everywhere.md)
 - **A clock you can read**, cream rather than yellow by default. [More](posts/2026-11-14-the-clock.md)
 - **Battery percentage, free memory and a brightness control** on every toolbar. [More](posts/2026-11-14-the-toolbar.md)
