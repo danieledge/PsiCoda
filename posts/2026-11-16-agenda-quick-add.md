@@ -32,9 +32,9 @@ PsiHub, opened with nothing typed, now ends its list with "Up next": the next th
 
 ## Calendars, entry details and time zones
 
-Agenda already lets each entry carry a symbol, a letter shown in a coloured box, and the netBook lets you pick the colours (Tools > Entry symbol colours). Coda uses those as calendars. Type "team meeting thu 2pm /work" (or #work) in Quick add and the entry gets the W box, and W is named Work. Showing and hiding whole calendars is built but not switched on yet: it works in the Busy view, but the Day and Week views fetch their entries another way, and a filter that works in one view of three would only confuse.
+Agenda already lets each entry carry a symbol, a letter shown in a coloured box, and the netBook lets you pick the colours (Tools > Entry symbol colours). Coda uses those as calendars. Type "team meeting thu 2pm /work" (or #work) in Quick add and the entry gets the W box, and W is named Work. View > Calendars shown... hides a whole calendar, in every view, and calendars that come from the calendar sync are listed with your own.
 
-Edit > Entry details... shows the entry under the cursor: its place, calendar, time zone, the people invited and your reply. A time zone keeps an entry at its moment: a call at 2pm New York shows at 7pm in London, and if the netBook's own zone changes (Internet time can set it from where you are), the entry and its alarm move with it. When an invitation comes in through the calendar sync, Accept, Decline or Tentative there goes back with the next sync.
+Edit > Entry details... shows the entry under the cursor: its place, calendar, time zone, the people invited and your reply. A time zone keeps an entry at its moment, by that place's own summer time: a call at 2pm New York shows at 7pm in London, or at 6pm in the fortnight of March when New York has changed its clocks and London hasn't, and if the netBook's own zone changes (Internet time can set it from where you are), the entry and its alarm move with it. When an invitation comes in through the calendar sync, Accept, Decline or Tentative there goes back with the next sync.
 
 I also looked at whether Agenda needed a new week view for the bigger screen. It doesn't: Psion laid out the netBook's Agenda for 640 x 480, and the week, day and year views already fill it.
 
