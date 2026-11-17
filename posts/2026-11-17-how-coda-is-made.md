@@ -208,6 +208,8 @@ Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
 
 **The themes**, picked from the cube wherever the look allows, so they show without dithering:
 
+![The six themes](../img/2026-11-13-themes-and-the-name-tap/themes-six.png)
+
 | Theme | Titles | Toolbar | Highlight | Buttons (face / set / pressed) | Clock face |
 |---|---|---|---|---|---|
 | Coda (standard) | Psion's navy | Psion's | navy 000080, white text | 9999cc / 6666cc / 666699 | cream ffffcc |
@@ -234,6 +236,16 @@ Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
 | 6666cc, a set button | 888899 | 8282a0 |
 | 666699, a pressed button | 555599 | 5050a0 |
 | ccffff, the Find bar and Sheet's headings | ccddff | cde8fe |
+
+Here's what that means, colour by colour. The middle column is what every netBook has shown since 1999; the right-hand one is what yours shows with Coda:
+
+![Psion's colours, EPOC's nearest and Coda's tuned palette](../img/2026-11-17-how-coda-is-made/palette-tune.png)
+
+And on screen, Calc's toolbar buttons before and after. The face is back to Psion's soft blue-grey, and the pressed button to its deep blue:
+
+<a href="../img/2026-11-15-exact-colours/buttons-before.png"><img src="../img/2026-11-15-exact-colours/buttons-before.png" width="140" alt="Calc's buttons in EPOC's colours"></a> <a href="../img/2026-11-15-exact-colours/buttons-after.png"><img src="../img/2026-11-15-exact-colours/buttons-after.png" width="140" alt="Calc's buttons with the palette tuned"></a>
+
+Which is pretty cool: colours Psion designed in 1999 and nobody ever actually saw on a netBook, shown properly for the first time, by changing four numbers in the screen hardware.
 
 The Find bar goes to ccddff, not the closer-looking cceeff, because the SA-1100's dithering shows 14 and 15 alike on a channel, so cceeff would look exactly like ccffff.
 
