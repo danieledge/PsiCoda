@@ -96,6 +96,7 @@ Control panel > Start-up opens programs and files after every start, in your ord
 - **Switching.** Hold Ctrl and press Menu again to step through the open programs (Shift+Menu goes back), then let go of Ctrl to switch, as Alt+Tab does on a PC. View > Switching preferences... leaves programs out by name or pattern.
 - **Free memory.** Type "free": every program's unused heap memory is handed back to the system, and PsiHub says how much was freed ("Freed 116 KB - 48,760 KB free"). Nothing closes and nothing is lost.
 - **Last restart and Recent files.** Type "last" to see why the netBook last restarted, or "recent" for the files your programs opened lately.
+- **Tasks.** Type "tasks" to open PsiMemMan, the new memory and task manager, on its list of every program and process with the memory each holds. From there you can switch to a program, close it or end it.
 - **Paste.** Ctrl+V and the Clipboard icon paste into PsiHub's search box, and Control panel items opened from PsiHub now open the right one (Start-up had opened Programs).
 - **Shortcut keys.** Ctrl+Fn and a letter starts a program from anywhere. Ctrl+Fn+A is PsiAmp's as standard.
 - **Files found by several words**, in any order, from a list kept up to date in the background.
@@ -103,6 +104,8 @@ Control panel > Start-up opens programs and files after every start, in your ord
 ![Stepping through the programs](../img/2026-11-17-switching/stepping-2x.png)
 
 ![Free memory](../img/2026-11-17-switching/freed-2x.png)
+
+![PsiMemMan's Tasks view](../img/2026-11-17-tasks-manager/tasks-2x.png)
 
 ![Shortcut keys](../img/2026-11-16-shortcut-keys/keys-2x.png)
 
