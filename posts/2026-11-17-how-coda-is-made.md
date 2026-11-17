@@ -153,6 +153,83 @@ It was tested in the emulator with keys and taps, then checked with the same key
 </details>
 
 
+## Every kind of change
+
+Changing Psion's programs is only part of it. Here is every kind of change Coda makes, from the gentlest to the deepest:
+
+| Kind | Example | Done |
+|---|---|---|
+| Removing files | Opera, Java, Email, fax | at build, checked against every import |
+| New files and programs | PsiHub, PsiFiles, PsiCalc | at build, converted to run from the ROM |
+| Plug-ins EPOC already looks for | Office converters, the PDF printer, recognisers, Control panel items, typefaces | at build, in EPOC's own folders and formats |
+| Resources | Sheet's Data menu, the start list, texts | at build |
+| Pictures, colours and data | icons, themes, the world map, time zones, the word list | at build |
+| Byte changes | Word's zoom steps, the wallpaper in every folder | at build, after the image is written |
+| Hooks in Psion's code | the toolbar widgets, smooth text, PsiHub on Ctrl+Menu | at build |
+| Hooks in import tables | Office files in Word and Sheet, Agenda's Quick add, Time's alarm settings | at build |
+| Device drivers | SerialBoost, the serial port at 230,400 bps | at build, switched on and off at run time |
+| Programs started at boot | the hidden helper that sets up themes, alarms, Internet time | at build, runs every start |
+| Changes made while running | repainting the clock in the chosen theme, the Control panel's choices | on the netBook, through a kernel driver of Coda's own |
+
+<details>
+<summary><b>Technical detail: device drivers, and SerialBoost</b></summary>
+
+EPOC talks to hardware through two layers of driver: a physical device driver (.pdd) for each piece of hardware, and a logical device driver (.ldd) that programs reach through a channel. Above them, comms servers such as the serial server's ECUART.CSY turn requests from programs into calls on that channel.
+
+SerialBoost runs the netBook's RS-232 port at 230,400 bps, twice what Psion allowed:
+
+- EPOC R5 has no setting for 230,400 bps at all, and the serial driver's table of speeds stops at 115,200. So the image's serial driver has one table entry changed: the slot for 110 bps (which nobody uses) gets the UART's divider for 230,400 bps instead. The infrared port's driver gets the same treatment, its 110 bps slot set to 115,200.
+- The serial server reads and sets a port's settings with two calls on the driver's channel. Those two calls are pointed at a small DLL of Coda's instead. It runs inside the serial server's own thread, with the same arguments.
+- When SerialBoost is on, and the port is the RS-232 one (told apart from the infrared and PC card ports by what its driver says it can do), a request for 115,200 bps goes to the driver as 110, which now means 230,400. Reading the settings back turns it into 115,200 again, so programs see exactly what they asked for and need no changes.
+- Anything else passes straight through untouched. The DLL has no writable data, because it runs from the ROM in a process that never loads it in the usual way.
+- On or off is a file the Control panel item writes; the DLL looks for it each time a port is set up.
+
+Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
+</details>
+
+<details>
+<summary><b>Technical detail: changing the ROM while it runs</b></summary>
+
+- On the netBook the "ROM" is really RAM: the bootloader copies OS.IMG from the card into memory and the system runs it from there, mapped read-only. A small kernel driver of Coda's own can write into it.
+- At build time mkimage notes where every picture it may want to recolour sits in the image (the clock faces, the digital clock's colours, the Documents bar, the wallpaper, the desks, the Extras bar) and writes the list into a data file in the ROM.
+- At start, and every five minutes after, the hidden start-up helper repaints those in the theme chosen now, through the driver. So a theme chosen on the netBook takes effect without rebuilding the image.
+- The Control panel's Icons and Programs choices change the ROM in memory the same way, a byte at a time and only where the bytes are exactly as expected. They also change OS.IMG on the card, but only if its header and that exact place match, so the choice survives the next time the image is loaded. The System screen reads its lists as it starts, so they offer a warm restart.
+- The palette tune: on the Classic and Coda themes, four entries of EPOC's colour palette are nudged to the nearest colour the netBook's 12-bit screen can show to Psion's intended ones.
+</details>
+
+<details>
+<summary><b>Technical detail: starting at boot</b></summary>
+
+- The System screen keeps two lists of program UIDs in its resource file: the 14 silkscreen icons, and the programs it starts in the background at boot. A UID is swapped for a UID, so the file keeps its size; where a list grows, the resources after it are moved along.
+- Psion's System screen only ran its start list on the very first start. One byte change makes it run every time.
+- Coda's start-up helper takes Jotter's place in that list, about 8 seconds after boot. It's an ordinary EIKON program that shows nothing: hidden, at the back, never taking the focus. It paints the theme's pictures, starts PsiHub, makes the first-start settings, runs Internet time and Coda's alarms, holds the screenshot key, handles the warm restart, and opens your own Start-up list.
+- The start list starts programs through the application architecture, so only programs (.app) can be in it, not plain executables.
+</details>
+
+<details>
+<summary><b>Technical detail: plug-ins EPOC already looks for</b></summary>
+
+EPOC was built to be extended, and a lot of Coda goes in through doors Psion left open, in EPOC's own folders and formats, without touching any program:
+
+- **Recognisers** (`\System\Recogs\`, .mdl) tell the system what kind of file something is, so a tap opens the right program: pictures for the viewer, Office files for Word and Sheet.
+- **Control panel items** (`\System\Controls\`, .ctl) appear in the Control panel by themselves. Coda's go after Psion's in the folder, so the system's index of Psion's own items doesn't move.
+- **Converters** (`\System\Convert\`) for the converter architecture: the Office formats.
+- **Printer drivers** (.pdr and .pdl): "PDF file" appears in every program's list of printers, and printing to it writes a PDF with real text.
+- **Typefaces** in `\System\Fonts\` appear in every program's font list.
+- **Program information files** (.aif) carry the file types a program claims, so Word and Sheet are given the Office types and the System screen shows those files with their icons.
+</details>
+
+<details>
+<summary><b>Technical detail: putting a program in place of Psion's</b></summary>
+
+Where Coda has its own version of a Psion program (PsiCalc for Calc, PsiSketch for Sketch, PsiRecord for Record), the choice is yours in the Control panel, and both stay.
+
+- The System screen opens a native file with the program of the file's UID, or a running program that has that UID. Swapping the two programs' UIDs was tried first, and Psion's Sketch then refused to start, because its code checks its own UID.
+- So the swap is made in the start list instead: the program you chose starts at boot in Psion's slot, and Coda's version gives its task Psion's UID while it runs, so files tapped on the System screen go to it.
+- A tiny hidden stand-in keeps that working after the program is closed, and sends the Extras bar's icon to whichever program is chosen.
+- Word's Insert > Sketch embeds a program by a UID constant inside Word. One byte change points it at PsiSketch when PsiSketch is chosen, and PsiSketch can be embedded as Sketch could: its drawing goes in Word's file in Sketch's own format, so Psion's Sketch still opens it.
+</details>
+
 ## My setup
 
 **The machine.** Everything is built on a Linux box with no special permissions, in a Docker image based on Ubuntu 24.04. It holds only the tools; the SDK sits outside it so builds are quick.
@@ -255,7 +332,7 @@ Everything below was written for Coda. The emulator scripts and the build contai
 | recordlayout, spelllayout | Record's panel and Spell's word box laid out for the netBook's screen. |
 | spell | A modern British English word list for the spelling checker. |
 | modemfax | The Control panel's Modems without its fax lines, now fax is gone. |
-| serialpatch | SerialBoost: the serial port at 230,400 bps. |
+| serialpatch | SerialBoost: one entry in the serial driver's speed table changed, and the serial server's two settings calls pointed at Coda's DLL. |
 | welcome | The Welcome file and the example files. |
 | programs, programchoice, programshow | The Control panel's Programs: which of Psion's programs or Coda's open each kind of file, and which are shown. |
 | startup | The Control panel's Start-up list. |
