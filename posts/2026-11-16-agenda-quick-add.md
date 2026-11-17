@@ -21,3 +21,11 @@ On a Series 5mx the Agenda is in the ROM, so there is no menu item, but Ctrl+Y i
 ![Quick add](../img/2026-11-16-agenda-quickadd/quickadd-dialog.png)
 
 ![PsiHub finds an entry](../img/2026-11-16-agenda-quickadd/hub-search.png)
+
+## Reminders
+
+An alarm's Snooze used to add five minutes a press, an hour at most. Now each press steps through 5 minutes, 15 minutes, an hour and a day, so putting a reminder off until the same time tomorrow is four presses of Space. Silence and Clear work as before.
+
+PsiHub, opened with nothing typed, now ends its list with "Up next": the next thing in Agenda this week, with its time. Enter opens Agenda there.
+
+![Snoozed for a day](../img/2026-11-17-agenda-snooze/snooze-day.png)
