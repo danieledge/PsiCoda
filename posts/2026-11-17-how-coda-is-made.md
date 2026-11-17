@@ -116,6 +116,43 @@ Tools: **keytest** generates a standard block of keys and taps (cut, copy and pa
 
 Every key and Command icon is checked afterwards against Psion's own image with the same script, so the shortcuts you know keep working.
 
+<details>
+<summary><b>Worked example: Word and Sheet opening and saving Office files</b></summary>
+
+The aim was for Word and Sheet to open and save .docx, .doc, .rtf, .odt and .txt, and .xlsx, .xls, .ods and .csv, as if Psion had built it in: tap a file on the System screen and it opens, Save writes the same file back in its own format, and Save as offers a File type. All without the source of Word or Sheet.
+
+**What was already there.** EPOC has a converter architecture (CONARC): converter libraries in `\System\Convert\`, each described by a small file listing which formats it converts between. Agenda and Contacts use it for vCard and vCalendar. Word and Sheet don't. Psion's netBook also had separate .doc and .txt viewers that made a throwaway copy you could never save back.
+
+**Four new pieces, all in the ROM:**
+
+1. **The converters.** A converter library in CONARC's own place and format: 18 converters, each Office format to and from Word's or Sheet's own. Underneath is a plain C++ engine with a document model (paragraphs, runs, styles, lists, tables, pictures, page setup) and a workbook model (cells, formulas in Excel's syntax, number formats, fonts, column widths, several sheets), with a reader and writer for every format: ZIP and a streaming XML reader for the 2007 formats and OpenDocument, OLE2 compound files for the 97-2003 ones. The same engine builds on Linux, so every format is tested on the host with round trips and random documents before it goes near the Psion. About 370 KB.
+2. **A recogniser**, so the System screen knows a .docx is a Word file: it checks the file's signature (a ZIP holding `word/` or `xl/`, an OLE2 file with a WordDocument or Workbook stream, `{\rtf`, or the name for .txt and .csv). Word's and Sheet's own program information files are given those types, so the files show Word's and Sheet's icons and open in them.
+3. **A hook library in Word's and Sheet's import tables.** Every EPOC program calls the user-interface library through an import table, one slot per function. The build finds the slots in Word.app and Sheet.app that point at a handful of Eikon functions, checks each one holds exactly what's expected, and points it at Coda's version instead. Each of Coda's versions calls the real one, then adds its part:
+   - **Opening a file** (`ProcessCommandParametersL`, and `ProcessMessageL` for switching files): a foreign file is converted to a Word or Sheet file in a temporary folder and that is opened, then the document's file name is set back to the original, so the title bar, Save and Save as all act on Report.docx.
+   - **Save** (`CEikDocument::SaveL`): Psion's own save runs first; if the document's name is a foreign type, the document is converted to it and written beside the original, swapped in only when it's complete, so a failure never leaves a half-written file.
+   - **Save as**: the dialog gets a "File type" line inserted, and choosing a type sets the name's ending.
+   - **Word's Import text file**: a foreign file comes in with its formatting.
+4. **Templates.** A Sheet engine made from nothing has a grid Sheet can't draw and a print setup it crashes on, so each new Sheet file is made from Psion's own sample spreadsheet, emptied and refilled.
+
+**What it keeps.** In Word: text, character and paragraph formatting, styles by name, bullets, page size, margins, headers and footers. Tables become tabbed rows, because EPOC Word has no tables. Pictures become Sketch objects inside the document, as Insert Sketch makes, and go back out as PNGs when saving. In Sheet: values, formulas (functions translated both ways; a formula Sheet can't compute keeps its last value), number formats, fonts, alignment, column widths, several sheets with their names. An infoprint after opening says what was left out.
+
+**Things found on the way:** Psion's .doc viewer's recogniser grabbed .doc files before Coda's, so the viewers came out once Coda's converters could open those formats. The File type list first made Save as 640 px wide, because a choice list's width follows its longest name, so its width is now fixed and the names shortened to fit, keeping the dialog Psion's size. Every hook slot is checked before it's changed, and the step is left out with a note if anything isn't as expected, so a different base image can't be damaged.
+</details>
+
+<details>
+<summary><b>Worked example: a new Data menu in Sheet</b></summary>
+
+Sheet keeps several worksheets in its engine but gives you no way to see another one, and has no fill, filter or summary. Coda adds a Data menu.
+
+1. **The menu is a resource change.** Sheet's menus live in Sheet.rsc. The build tool finds Sheet's menu bar through its EIK_APP_INFO record, adds two new resources at the end of the file (the Data menu and its Worksheet cascade), rewrites the menu bar's titles to put Data before Tools, as the EIKON style guide orders menus, and adds the new shortcut keys to the hotkey table, only on letters Sheet leaves free. Fill down, Fill right, Fill series..., Filter..., Show all rows, Summarise..., and Worksheet > Switch, Create new, Rename and Delete.
+2. **The commands need a home.** A menu command goes to the program's ProcessCommandL. Sheet doesn't override that one; it calls Eikon's through its import table. So the same hook library takes that slot, passes every one of Sheet's own commands straight on, and runs only the new ones itself.
+3. **Reaching Sheet's insides.** The new commands need Sheet's spreadsheet engine and its grid, which Sheet creates and keeps to itself. The hook watches for them instead: Sheet calls the engine and grid libraries through more import slots (creating the engine, restoring a file, drawing the grid), and the hook notes each object as it goes past. The grid's private members are reached by compiling its public header with its private section opened, in that one file only.
+4. **The details that bit.** Each worksheet in Sheet's engine has its own layout, so a newly shown worksheet has to be given Sheet's zoom, or its rows draw five times too tall. Switching back drew column A twice until the grid's area was set in the right order. A descriptor taken past its end closed Sheet at the end of a switch. Filter hides rows by giving them a height of zero, which Sheet already saves in its file, just as Excel saves hidden rows. SUMIF and COUNTIF, which Sheet's engine lacks, become a sum of IFs over up to 16 cells, the longest formula Sheet allows.
+
+It was tested in the emulator with keys and taps, then checked with the same key script against Psion's Sheet to be sure nothing Sheet already did had changed.
+</details>
+
+
 ## My setup
 
 **The machine.** Everything is built on a Linux box with no special permissions, in a Docker image based on Ubuntu 24.04. It holds only the tools; the SDK sits outside it so builds are quick.
