@@ -26,7 +26,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **Proper replacements for the old programs.** PsiMail instead of Psion's Email, PsiWeb instead of the web browser, PsiTerm instead of the old Comms terminal. PsiMail and PsiWeb ask how you get online the first time and set themselves up. PsiWeb opens on a speed dial and has a Reader style; PsiMail shows new mail at once, today's events and your week. [More](posts/2026-11-12-the-starting-point.md#what-replaced-what), [what's new in them](STATUS.md#replaced)
 - **Six colour themes**, picked in the Control panel with a preview. The toolbar name box, the Documents bar, the wallpaper and both clocks all follow along. [More](posts/2026-11-14-colour-everywhere.md)
 - **A clock you can read**, cream rather than yellow by default. [More](posts/2026-11-14-the-clock.md)
-- **Battery percentage, free memory and a brightness control** on every toolbar. [More](posts/2026-11-14-the-toolbar.md)
+- **Toolbar widgets and clock faces.** Choose up to six widgets above the clock on every toolbar: the battery, free memory, free space, the date, the week, the moon, the next alarm, brightness or contrast. A tap on the clock goes to the next face: analogue, digital, this month, the moon, sunrise and sunset, the date large, or a widget drawn large. [More](posts/2026-11-17-toolbar-widgets.md)
 - **SerialBoost**, which runs the serial port at 230,400 bps, twice what Psion allowed. On by default, as Serial speed in the Control panel. [More](posts/2026-11-14-small-additions.md#serialboost)
 - **PsiView**, which shows each photo in 256 colours picked for that photo. [More](posts/2026-11-14-pictures-and-colour-tests.md)
 - **A tidy up of the bits that were rushed in 1999**, from the fizzy dotted desk behind Calc to Time's lurid world map. [More](posts/2026-11-14-the-review.md)
@@ -76,6 +76,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 16 November 2026 | [Agenda: Quick add and search](posts/2026-11-16-agenda-quick-add.md) |
 | 17 November 2026 | [Clips](posts/2026-11-17-clips.md) |
 | 17 November 2026 | [Files, clips, sharing and a smarter Agenda](posts/2026-11-17-files-clips-sharing-agenda.md) |
+| 17 November 2026 | [Toolbar widgets and clock faces](posts/2026-11-17-toolbar-widgets.md) |
 
 
 ## Thanks
