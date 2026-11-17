@@ -15,7 +15,12 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **PsiAmp**, an MP3 and WAV player in the look of the classic skinned players. It floats over the program in use, and Ctrl+Fn+A brings it up from anywhere. Coda and EPOC skins, and classic .wsz skins of your own. [More](posts/2026-11-16-psiamp-open-with-and-more.md)
 - **Open with.** Fn+Shift+Enter on a file picks the program it opens in, and can remember the choice. [More](posts/2026-11-16-psiamp-open-with-and-more.md#open-with)
 - **Calc, Sketch and Record made again for the whole screen**, with Psion's menus, keys and files. Sketch has all 256 colours, Record a waveform and selections. [More](posts/2026-11-15-psisketch.md)
-- **Agenda in plain English.** Ctrl+Y in Agenda (or PsiHub) and type "lunch with Sam fri 1pm": the entry is made, repeats, alarms and birthdays too. PsiHub finds Agenda's entries. [More](posts/2026-11-16-agenda-quick-add.md)
+- **Agenda in plain English.** Ctrl+Y in Agenda (or PsiHub) and type "lunch with Sam fri 1pm": the entry is made, repeats, alarms and birthdays too. Calendars you can hide, entry details, time zones that follow summer time, and a Snooze that goes up to a day. [More](posts/2026-11-16-agenda-quick-add.md)
+- **PsiFiles, a file manager.** Tab or Ctrl+Q on the System screen opens it: a tree of the disks, thumbnails, previews, copies that are checked before they take their name, a Trash and Undo. [More](posts/2026-11-17-files-clips-sharing-agenda.md#psifiles)
+- **Share.** The Infrared icon now offers Email, Save as PDF, Copy to card and Infrared for the file in front of you. [More](posts/2026-11-17-files-clips-sharing-agenda.md#share)
+- **Clips.** Ctrl+Fn+V in any program pastes something you copied earlier, or a text you saved. [More](posts/2026-11-17-clips.md)
+- **Calendar and contacts sync.** Sync in the Control panel keeps Agenda and Contacts in step with online calendars and address books. [More](posts/2026-11-17-files-clips-sharing-agenda.md#calendar-and-contacts-sync)
+- **Alarms that stop by themselves**, missed alarms listed at switch-on, and a chime, all in Time's Preferences. [More](posts/2026-11-17-files-clips-sharing-agenda.md#alarms)
 - **Saving as you go.** Word and Sheet save your changes every 5 minutes. [More](posts/2026-11-16-first-impressions.md)
 - **Proper replacements for the old programs.** PsiMail instead of Psion's Email, PsiWeb instead of the web browser, PsiTerm instead of the old Comms terminal. [More](posts/2026-11-12-the-starting-point.md#what-replaced-what)
 - **Six colour themes**, picked in the Control panel with a preview. The toolbar name box, the Documents bar, the wallpaper and both clocks all follow along. [More](posts/2026-11-14-colour-everywhere.md)
@@ -68,6 +73,8 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 16 November 2026 | [Print to PDF](posts/2026-11-16-print-to-pdf.md) |
 | 16 November 2026 | [PsiAmp, Open with and more](posts/2026-11-16-psiamp-open-with-and-more.md) |
 | 16 November 2026 | [Agenda: Quick add and search](posts/2026-11-16-agenda-quick-add.md) |
+| 17 November 2026 | [Clips](posts/2026-11-17-clips.md) |
+| 17 November 2026 | [Files, clips, sharing and a smarter Agenda](posts/2026-11-17-files-clips-sharing-agenda.md) |
 
 
 ## Thanks
