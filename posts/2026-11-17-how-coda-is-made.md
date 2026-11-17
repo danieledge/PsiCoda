@@ -183,6 +183,31 @@ Calc's toolbar buttons before and after: the face back to Psion's soft blue-grey
 
 Which is pretty cool: colours designed in 1999 that nobody ever actually saw on a netBook, shown properly for the first time. The technical detail is in "colours, the palette and the themes" below.
 
+### Photos in their own 256 colours
+
+The same palette trick goes much further in PsiView, Coda's picture viewer. EPOC gives every program the same fixed 256 colours, which suits menus and icons but not a photo. The screen hardware can show any 256 out of 4,096, so when you open a photo full screen, PsiView works out the best 256 colours for that particular photo and loads them into the palette while it's in front. Here's Kodak's parrots, the usual test picture, up close in the emulator:
+
+| EPOC's fixed 256 colours | The photo's own 256 colours |
+|---|---|
+| ![The parrots in EPOC's palette](../img/2026-11-14-pictures/psiview-epoc-colours.png) | ![The parrots in their own palette](../img/2026-11-14-pictures/psiview-own-colours.png) |
+
+Same screen, same 256 colours at once, but chosen for the picture: the parrots get 227 colours EPOC doesn't have, and the average error per colour channel roughly halves, from about 15 to 8. The moment a menu, dialog or another program comes in front, EPOC's palette goes back and the photo is redrawn in EPOC's nearest colours, so nothing else on screen ever looks wrong. Also cool.
+
+<details>
+<summary><b>Technical detail: choosing a photo's 256 colours</b></summary>
+
+- The decoder (a separate process, so a bad file can't take the viewer down) keeps the decoded picture whole as RGB.
+- It builds a histogram over the 4,096 colours the panel can actually show (4 bits a channel), not over 24-bit colour, so no palette slot is wasted on a difference the screen can't display.
+- Median cut over that histogram: repeatedly split the box with the most pixels times its longest side, at the median, until there are enough boxes. Each box's mean, rounded to 4 bits a channel, becomes a palette entry; duplicates are topped up with the most frequent colours.
+- A handful of entries stay exactly EPOC's, so the toolbar, the clock and infoprints still look right while the photo is up.
+- Then a serpentine Floyd-Steinberg dither to that palette. The nearest entry for each colour the dither meets is searched once and cached in a 32 x 32 x 32 table.
+- Small pictures (under 160 x 120) and pictures with 64 colours or fewer (drawings, icons, greys) keep EPOC's palette, dithered as before.
+- The palette is only up while PsiView is in front, has the focus and has no menu or dialog open, checked on every focus change and once a second. Putting EPOC's back only touches entries still holding what PsiView wrote, and never the pixel-size bits in entry 0.
+- A guard process holds a copy of the saved and written palettes. If PsiView ever ends without putting the palette back (a crash, or killed), the guard does it.
+- In the emulator a 569 x 427 photo decodes in 1.64 s and gets its colours in 0.67 s (0.14 s choosing, 0.53 s dithering); a full 640 x 480 screen in 0.80 s.
+- Tools > Preferences (Ctrl+K), "Photo colours", switches between "Chosen for each photo" and "Standard".
+</details>
+
 <details>
 <summary><b>Technical detail: device drivers, and SerialBoost</b></summary>
 
