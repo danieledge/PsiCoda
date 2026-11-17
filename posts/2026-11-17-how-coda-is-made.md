@@ -199,5 +199,84 @@ A build produces the new OS.IMG, the bootloader's picture and a folder with ever
 
 ## The tools
 
-Everything named in the technical sections above was written for Coda: romlib and rom8 for reading and writing ROM images, mkimage and cardkit for building the image and the card, branding for the boot picture, relocdiff, rebase and shrink-check for the ROM-shrinking work, keytest and sheetmenus for keeping Psion's keys intact, plus the emulator scripts. The emulator scripts are already public; the rest will be made public in due course, once things are reasonably stable.
+Everything below was written for Coda. The emulator scripts and the build container are already public, in the shared Psion core library; the netBook tools will be made public in due course, once things are reasonably stable. Most are small TypeScript programs run with Node; the picture tools are Python.
 
+**Reading and writing the image**
+
+| Tool | What it does |
+|---|---|
+| romlib | Reads a netBook OS.IMG's whole file tree, removes files (refusing anything still imported), adds and replaces files, places them in the free space and writes the image back. Converts programs to execute-in-place images as it places them. |
+| rom8 | Lists, extracts and replaces single files inside an OS.IMG. The everyday tool for looking inside an image. |
+| xip | Turns one ordinary EPOC program or DLL into an execute-in-place ROM image: relocates it, fills its imports, writes its ROM header. |
+| sis | Reads the files out of an EPOC Release 5 .sis installer, so Coda's programs go into the ROM from the same installers that go on the card. |
+| mkimage | The build itself: runs every step below in order, writes the image, applies the patches and prints a note for every change. |
+| cardkit | Assembles everything for the card: the image, the boot picture, installers, the programs that live on the card and Psion's original image. |
+| mkcard | Makes a FAT16 CompactFlash card image for the emulator, with OS.IMG and the card's files. |
+| skinguard | Keeps other people's player skins out of anything published. |
+
+**The System screen and the toolbar**
+
+| Tool | What it does |
+|---|---|
+| shellpatch | The System screen's start list at every start, not only the first, and the silkscreen icons' programs. |
+| shelltext, shelledge | The Control panel's "Icon position" texts, and the System screen's edge in the theme's colour. |
+| docbar, extrasbar, extrascells | The Documents bar down the left, the Extras bar's colours, and each Extras icon drawn over its name rather than cut by it. |
+| disklist, recentfiles | The Ctrl+Q list of disks, and "No recent files" on the System screen. |
+| openwith, psifileskey, sharekey | The hooks for Open with (Fn+Shift+Enter), Tab and Ctrl+Q opening PsiFiles, and the Infrared Command icon becoming Share. |
+| tasklist | A tap on a program's name at the top of its toolbar opens the list of open programs. |
+| battpatch | The battery, free memory and brightness on every toolbar, and now the widgets and clock faces: the hook in Eikon's control factory. |
+| toolbars | Every built-in program's toolbar reshaped to make room for them. |
+| titlepatch | The program's name at the top of the toolbar in the theme's colours. |
+
+**Look and feel**
+
+| Tool | What it does |
+|---|---|
+| themes, themes-h, themepatch | The colour themes for Eikon (every program's colours), the same list for Coda's own programs, and the hook that applies the theme chosen on the netBook. |
+| background, wallpaper, desk | Coda's System screen backgrounds, the standard wallpaper, and the "desk" behind Calc, Record and Spell in the theme's colour. |
+| iconpatch, contrast | The ROM's pictures redrawn cleaner, and the Contrast strip in the Control panel. |
+| fontpatch, typefaces | Smooth text (the hook in the graphics library's text drawing), and Coda's typefaces in the image. |
+| branding | The Coda sign and the bootloader's 640 x 540 picture, drawn pixel by pixel for the size it is shown at. |
+| mbm | Reads and writes EPOC multi-bitmap files. |
+| worldmap, worldtz | Time's world map drawn afresh from Natural Earth, and the World database's time zones brought up to date. |
+
+**Psion's programs**
+
+| Tool | What it does |
+|---|---|
+| polish | Small fixes to Psion's texts and settings in the ROM. |
+| progname | One naming rule for the programs Coda puts in place of Psion's. |
+| wordnormal, wordzoom, wordband, toolband | A new Word file that reads well on the netBook's screen, Word's zoom in six steps, the font's full name in Word's toolband, and Word's and Sheet's toolbands a third taller. |
+| convpatch | Word and Sheet opening and saving Office files: the converters, the recogniser and the hooks in their import tables. |
+| sheetmenus, wordmenus | Sheet's Data menu and Word's View > Markdown source, added to their resource files, with shortcut keys only on free letters. |
+| agendapatch, agendahook, snooze | Agenda's year planner tint, Coda's additions to Agenda, and Snooze in steps up to a day. |
+| alarmprefs | Coda's alarm settings in Time's own Preferences. |
+| contactslabels | Contacts' labels in full when zoomed in. |
+| recordlayout, spelllayout | Record's panel and Spell's word box laid out for the netBook's screen. |
+| spell | A modern British English word list for the spelling checker. |
+| modemfax | The Control panel's Modems without its fax lines, now fax is gone. |
+| serialpatch | SerialBoost: the serial port at 230,400 bps. |
+| welcome | The Welcome file and the example files. |
+| programs, programchoice, programshow | The Control panel's Programs: which of Psion's programs or Coda's open each kind of file, and which are shown. |
+| startup | The Control panel's Start-up list. |
+| psicalc, psisketch, psirecord, psifiles, psiprint, psiamp | Each Coda program put into the image, with its settings and where it appears. |
+
+**The ROM-shrinking work (experimental, not part of the build yet)**
+
+| Tool | What it does |
+|---|---|
+| relocdiff | Recovers a ROM program's missing relocations by comparing Psion's builds for different languages. |
+| rebase | Moves programs down in the image and rewrites every address that points at them. |
+| romlayout | Prints the layout of an image: what sits where, and the gaps. |
+| shrink-check | Boots an original and a packed image through the same scripted sessions and compares the screens pixel for pixel. |
+
+**Testing**
+
+| Tool | What it does |
+|---|---|
+| keytest | Runs the same block of keys and taps against Psion's image and Coda's, and puts the results side by side. |
+| run, seed, mkcard (emulator) | Drive the emulator with a script of taps and keys, seed test data such as mail and calendars, and build test cards. Already public. |
+| net | Runs the network programs in the emulator against small fake servers. Already public. |
+| v4bx | Builds without the BX instruction, and checks every program for any that slipped in. Already public. |
+| sign | Signs releases so installed programs only accept updates from me. Already public. |
+| psibuild | The build container: the SDK's tools, Wine and the compilers, so a build needs nothing installed but Docker. Already public. |
