@@ -78,6 +78,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 17 November 2026 | [Files, clips, sharing and a smarter Agenda](posts/2026-11-17-files-clips-sharing-agenda.md) |
 | 17 November 2026 | [Toolbar widgets and clock faces](posts/2026-11-17-toolbar-widgets.md) |
 | 17 November 2026 | [How Coda is made](posts/2026-11-17-how-coda-is-made.md) |
+| 18 November 2026 | [A setback: running out of memory](posts/2026-11-18-a-setback-memory.md) |
 
 
 ## Thanks
