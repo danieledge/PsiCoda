@@ -63,7 +63,7 @@ And when PsiLinux is behind another program with just a shell at its prompt, it 
 
   ![Help in PsiHub](../img/2026-11-18-memory-back-and-alarm/help-2x.png)
 
-- **Diagnostics.** With the debug mode on in Control panel > Diagnostics, every program's own log is kept on the card as it changes, next to the system log. Send sends them all: it shows "Connecting..." until the connection is up, then "Sending log...".
+- **Diagnostics.** With the debug mode on in Control panel > Diagnostics, every program's own log is kept on the card as it changes, next to the system log. Save puts them all in one dated report in the Coda\Diagnostics folder on the card, to attach to an issue on GitHub.
 - **Example files** are on the card, in Documents > Example files, with two PDFs for the PDF viewer. A new C: disk no longer gets a copy. Tools > Re-install sample files has gone from the System screen's menu, with its Shift+Ctrl+S, as there is nothing in the system to re-install.
 - **PsiFiles** shows hidden files and folders, always.
 - **The name tap.** A tap on the program's name at the top of the toolbar opens PsiMemMan's task list.

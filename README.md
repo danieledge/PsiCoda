@@ -18,7 +18,7 @@ There's no ROM, no ROM files and no source code here. Just the writing and the p
 - **Agenda in plain English.** Ctrl+Y in Agenda (or PsiHub) and type "lunch with Sam fri 1pm": the entry is made, repeats, alarms and birthdays too. Calendars you can hide, entry details, time zones that follow summer time, and a Snooze that goes up to a day. [More](posts/2026-11-16-agenda-quick-add.md)
 - **PsiFiles, a file manager.** Tab or Ctrl+Q on the System screen opens it: a tree of the disks, thumbnails, previews, copies that are checked before they take their name, a Trash and Undo. [More](posts/2026-11-17-files-clips-sharing-agenda.md#psifiles)
 - **Share.** The Infrared icon now offers Email, Save as PDF, Copy to card and Infrared for the file in front of you. [More](posts/2026-11-17-files-clips-sharing-agenda.md#share)
-- **More free memory.** Two Coda images on the card: a small one that keeps what you don't use all the time on the card, for about 18.6 MB free at the System screen instead of 15.6 MB, and a full one that needs no card. PsiBoot's Switch image picks between them and Psion's own. [More](posts/2026-11-18-memory-back-and-alarm.md#two-coda-images-on-the-card)
+- **More free memory.** Two Coda images on the card: a small one that keeps what you don't use all the time on the card, for about 19.9 MB free at the System screen instead of 15.6 MB, and a full one that needs no card. PsiBoot's Switch image picks between them and Psion's own. [More](posts/2026-11-18-down-to-9-mb.md)
 - **Free memory at a glance.** The toolbar's free memory line turns amber when memory is low and red when it's very low. Tap it for a Free memory dialog that closes programs, puts them to sleep or moves files to the card. [More](posts/2026-11-18-memory-back-and-alarm.md#the-free-memory-line)
 - **A memory and task manager.** PsiMemMan shows what is using the memory, with a graph over time, and every program and process with the memory it holds, to switch to, close or end. Free memory gives back what programs have finished with. Type "tasks" in PsiHub. [More](STATUS.md#added)
 - **Clips.** Ctrl+Fn+V in any program pastes something you copied earlier, or a text you saved. [More](posts/2026-11-17-clips.md)
@@ -82,6 +82,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 17 November 2026 | [How Coda is made](posts/2026-11-17-how-coda-is-made.md) |
 | 18 November 2026 | [A setback: running out of memory](posts/2026-11-18-a-setback-memory.md) |
 | 18 November 2026 | [Memory back, and an alarm of its own](posts/2026-11-18-memory-back-and-alarm.md) |
+| 18 November 2026 | [Down to 9 MB](posts/2026-11-18-down-to-9-mb.md) |
 
 
 ## Thanks
