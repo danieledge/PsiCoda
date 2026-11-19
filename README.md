@@ -4,6 +4,8 @@ Finishing what Psion didn't.
 
 The Psion netBook came out in 1999 and its software never quite got finished. Coda is my edition of its operating system, with the rough edges I keep tripping over sorted out one at a time. This is the diary of that work. Each entry has screenshots of the bit that changed, cropped and blown up, with Psion's original next to mine where there is one.
 
+The website, with an install guide, is at [danieledge.github.io/coda](https://danieledge.github.io/coda/). If Coda is useful to you, you can [buy me a coffee](https://buymeacoffee.com/danedge).
+
 There's no ROM, no ROM files and no source code here. Just the writing and the pictures. [How Coda is made](posts/2026-11-17-how-coda-is-made.md) explains how it's built and tested. That will come once I've got things reasonably stable.
 
 ## Key features
