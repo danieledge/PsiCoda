@@ -6,7 +6,7 @@ The Psion netBook came out in 1999 and its software never quite got finished. Co
 
 The website, with an install guide, is at [danieledge.github.io/coda](https://danieledge.github.io/coda/). If Coda is useful to you, you can [buy me a coffee](https://buymeacoffee.com/danedge).
 
-There's no ROM, no ROM files and no source code here. Just the writing and the pictures. [How Coda is made](posts/2026-11-17-how-coda-is-made.md) explains how it's built and tested. That will come once I've got things reasonably stable.
+This repository is just the writing and the pictures: no ROM files and no source code. To try Coda, [download Coda Beta 1](https://danieledge.github.io/coda/download.html). It is an early beta, so back up your card first. The source of several of Coda's programs is public on GitHub, including [PsiTerm](https://github.com/danieledge/psiterm), [PsiMail](https://github.com/danieledge/psimail), [PsiWeb](https://github.com/danieledge/psiweb), [PsiLinux](https://github.com/danieledge/psilinux) and [PsiMemMan](https://github.com/danieledge/psimemman). [How Coda is made](posts/2026-11-17-how-coda-is-made.md) explains how it's built and tested.
 
 ## Key features
 
