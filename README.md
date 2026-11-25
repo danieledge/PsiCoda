@@ -87,6 +87,7 @@ A coda is the closing passage that finishes a piece of music. Until 14 November 
 | 18 November 2026 | [A setback: running out of memory](posts/2026-11-18-a-setback-memory.md) |
 | 18 November 2026 | [Memory back, and an alarm of its own](posts/2026-11-18-memory-back-and-alarm.md) |
 | 18 November 2026 | [Down to 9 MB](posts/2026-11-18-down-to-9-mb.md) |
+| 25 November 2026 | [Coda Beta 1.07: minor bug fixes](posts/2026-11-25-beta-1-07.md) |
 
 
 ## Thanks
