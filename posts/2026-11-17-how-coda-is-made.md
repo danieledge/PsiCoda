@@ -207,6 +207,10 @@ It's still 256 colours at once, but chosen for the picture. The parrots get 227 
 - Tools > Preferences (Ctrl+K), "Photo colours", switches between "Chosen for each photo" and "Standard".
 </details>
 
+### A faster serial port
+
+SerialBoost runs the netBook's serial port at 230,400 bps, twice the fastest speed Psion allowed. A modem or anything else plugged into the port can move data faster. Programs need no changes, and you turn it on or off in the Control panel.
+
 <details>
 <summary><b>Technical detail: device drivers, and SerialBoost</b></summary>
 
@@ -223,6 +227,10 @@ SerialBoost runs the netBook's RS-232 port at 230,400 bps, which is twice what P
 Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
 </details>
 
+### Changing things while the netBook is on
+
+When the netBook starts, it copies its whole system from the card into memory. A small driver of Coda's own can change that copy. This is how a new theme can repaint the clock, the wallpaper and other pictures without a new system image. Choices such as which icons to use are also saved to the card.
+
 <details>
 <summary><b>Technical detail: changing the ROM while it runs</b></summary>
 
@@ -232,6 +240,10 @@ Tools: **serialpatch**, with the SerialBoost DLL and its Control panel item.
 - The Control panel's Icons and Programs choices change the ROM in memory the same way, a byte at a time and only where the bytes are exactly as expected. They also change OS.IMG on the card, but only if its header and that exact place match, so the choice survives the next time the image is loaded. The System screen reads its lists as it starts, so they offer a warm restart.
 - The palette tune changes the screen's colours directly too. The next section covers it.
 </details>
+
+### Colours and themes
+
+The netBook's screen can show 256 colours at once, picked from 4,096. EPOC chose a fixed set, and some of the colours Psion designed for buttons and the Find bar weren't in it. Coda adjusts a few of them so they look as Psion intended. It also adds themes, including a dark one, which you can change on the netBook.
 
 <details>
 <summary><b>Technical detail: colours, the palette and the themes</b></summary>
@@ -282,6 +294,10 @@ Because it's the hardware palette, every pixel of that colour changes, in every 
 Tools: **themes** holds every theme and the tune list. **themes-h** writes the same list for Coda's own programs. **themepatch** applies the theme chosen on the netBook. **colourtest** is a test program that measured what the panel really shows.
 </details>
 
+### Starting up
+
+Some of Coda's jobs happen when the netBook starts, such as applying your theme and setting up alarms and Internet time. Coda adds a small hidden program to the list the System screen starts in the background. You never see it.
+
 <details>
 <summary><b>Technical detail: starting at boot</b></summary>
 
@@ -290,6 +306,10 @@ Tools: **themes** holds every theme and the tune list. **themes-h** writes the s
 - Coda's start-up helper takes Jotter's place in that list, about 8 seconds after boot. It's an ordinary EIKON program that shows nothing. It stays hidden at the back and never takes the focus. It paints the theme's pictures, starts PsiHub, makes the first-start settings, runs Internet time and Coda's alarms, holds the screenshot key, handles the warm restart, and opens your own Start-up list.
 - The start list starts programs through the application architecture, so it can only hold programs (.app), not plain executables.
 </details>
+
+### Using what EPOC already offers
+
+EPOC was designed so that new parts could be added to it, and much of Coda goes in this way. New file types, Control panel items, a PDF printer and extra typefaces turn up in Psion's own programs without any change to them.
 
 <details>
 <summary><b>Technical detail: plug-ins EPOC already looks for</b></summary>
@@ -304,10 +324,12 @@ EPOC was built to be extended, and a lot of Coda goes in through EPOC's own fold
 - **Program information files** (.aif) carry the file types a program claims, so Word and Sheet are given the Office types and the System screen shows those files with their icons.
 </details>
 
-<details>
-<summary><b>Technical detail: putting a program in place of Psion's</b></summary>
+### Coda's versions of Psion's programs
 
 Where Coda has its own version of a Psion program (PsiSketch for Sketch, PsiRecord for Record), both stay and you choose between them in the Control panel. Psion's Calc is the exception. It was removed on 19 November and PsiCalc has taken its place.
+
+<details>
+<summary><b>Technical detail: putting a program in place of Psion's</b></summary>
 
 - The System screen opens a native file with the program of the file's UID, or a running program that has that UID. I tried swapping the two programs' UIDs first, but Psion's Sketch then refused to start, because its code checks its own UID.
 - The swap is made in the start list instead. The program you chose starts at boot in Psion's slot, and Coda's version gives its task Psion's UID while it runs, so files tapped on the System screen go to it.
