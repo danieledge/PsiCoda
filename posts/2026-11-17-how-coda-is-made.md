@@ -1,12 +1,12 @@
 # How Coda is made
 
-*17 November 2026.*
+*17 November 2026. Updated 27 November 2026.*
 
 People have asked how any of this works, given there's no source code for the netBook's operating system. This covers everything from Psion's own image to a card in the machine, and the setup I use to build and test it.
 
 ## Starting from Psion's image
 
-The netBook doesn't keep its operating system in a chip. At switch-on it loads it from the CF card as one file, OS.IMG, of about 14 MB. Coda starts from Psion's last English release, v1.05(450), with the community c1.60a patch by Poke^Patisoners (2005). That patch had already fixed a handful of Psion's own bugs, such as the colour icons and the console's colours.
+The netBook doesn't keep its operating system in a chip. At switch-on it loads it from the CF card as one file, OS.IMG. Psion's is about 14 MB. Coda starts from Psion's last English release, v1.05(450), with the community c1.60a patch by Poke^Patisoners (2005). That patch had already fixed a handful of Psion's own bugs, such as the colour icons and the console's colours.
 
 That file is a ROM image, a tree of folders and files laid out at fixed places in memory. The programs in it run straight from the ROM without being copied into RAM. The trouble is that Psion built each program to run at one exact address and kept no record of the addresses inside it, so normally nothing in the image can be moved.
 
@@ -47,7 +47,7 @@ The build tool reads the image's tree, takes things out, adds Coda's programs, p
 - The folder lists are written fresh and point at the new files. The system still points into the original lists, so those are left alone.
 - Nothing may overlap. If any two files would share a byte, the build stops.
 
-If it doesn't all fit, the tool drops the least important extras in a set order (spare wallpapers first, then extra typefaces), tries again and says what it left out.
+If it doesn't all fit, the small image and public builds stop and say so. Other builds drop the least important extras in a set order (spare wallpapers first, then extra smooth-text styles), try again and say what they left out.
 
 <details>
 <summary><b>Technical detail: how the image is written</b></summary>
@@ -57,7 +57,7 @@ If it doesn't all fit, the tool drops the least important extras in a set order 
 - New files are placed biggest first, best fit, because each ROM program must be one contiguous block.
 - Every folder is written afresh into free space and the root list is repointed. The original folder blocks are never overwritten, because the kernel keeps pointers into them from the ROM header.
 - Before writing, every file's byte range is checked against every other, and any overlap refuses the image.
-- When there isn't room the build drops extras in a fixed order: spare wallpapers (about 250 KB each), then extra typefaces, then font choices, then the smooth-text styles. It tries again and prints a note for each.
+- When there isn't room, a small or public build stops. Other builds drop extras in a fixed order: spare wallpapers (about 250 KB each), then smooth-text styles down to one, then font choices, then smooth text itself and last the extra typefaces. They try again and print a note for each.
 
 Tools: **mkimage** runs the whole build. It does the removals, resource edits, pictures, the theme, Coda's programs from their installers and the hooks, writes the image and then applies the patches. Every step prints a note, so the build log is a full list of what changed. **cardkit** assembles the card folder, which holds the image, the bootloader picture, installers, the card-resident programs and Psion's original image beside them. **branding** makes the 640 x 540 bootloader picture, including the strip the bootloader draws its "Loading" bar from.
 </details>
@@ -67,21 +67,20 @@ Most of Coda's programs are built to run from the ROM too, so their code takes n
 
 ## Room and memory
 
-The ROM's size decides how much RAM you get. Whatever the ROM doesn't use of the memory bank it's loaded into becomes RAM, in whole megabytes. On a 32 MB netBook a 14 MB ROM leaves about 18 MB. Freeing space inside the ROM gives Coda room for programs, but you only get more RAM once the end of the ROM drops past a megabyte boundary.
+The ROM's size decides how much RAM you get. Whatever the ROM doesn't use of the memory bank it's loaded into becomes RAM, in whole megabytes. On a 32 MB netBook a 14 MB ROM, the size of the first Coda images, leaves about 18 MB. The small image is now 9 MB and the full one 13 MB. Freeing space inside the ROM gives Coda room for programs, but you only get more RAM once the end of the ROM drops past a megabyte boundary.
 
-There's a way to go further. Psion released the same v1.05 software in several languages, and the same program sits at a different address in each. If you compare two builds word by word, a word that differs between them and points to the same place in each is an address. With five builds as witnesses, this recovers the missing records for most of the image. Rebuilding a program at another build's address with them gives exactly Psion's bytes every time (607 out of 607). It turns out someone did the same on the Series 5mx about twenty years ago. It works on the emulator as a prototype but isn't in Coda's images yet.
+There's a way to go further. Psion released the same v1.05 software in several languages, and the same program sits at a different address in each. If you compare two builds word by word, a word that differs between them and points to the same place in each is an address. With five other builds as witnesses for the one Coda starts from, this recovers the missing records for most of the image. Rebuilding a program at another build's address with them gives exactly Psion's bytes every time (607 out of 607). Coda's small and full images are now both built this way, with Psion's files moved down so the ROM can end lower.
 
 <details>
 <summary><b>Technical detail: ROM size, RAM and moving Psion's code</b></summary>
 
 - The kernel reads iRomSize from the ROM header alone and rounds it up to the next megabyte, because the ROM is mapped in 1 MB sections. The rest of that 16 MB memory bank becomes RAM. It doesn't use the wrapper's size field for this.
 - iRomSize still has to cover every file. With the header saying 12.5 MB and files reaching 13 MB, the System screen lost its icons, because the file server uses the unrounded value as the end of the ROM drive.
-- In the emulator a 14 MB ROM against a 16 MB one changed total memory from 50 MB to 48 MB. On a real 32 MB netBook, 14 MB should leave 18 MB of RAM. That figure is worked out and not yet measured.
+- In the emulator a 14 MB ROM against a 16 MB one changed total memory from 50 MB to 48 MB. On a real 32 MB netBook, 14 MB should leave 18 MB of RAM.
 - To recover the addresses, the v1.05 builds for the UK, US, France, Germany, Spain and the MalayBook are six witnesses. Compare one file across two builds. A word that is identical isn't an address (or points at something that didn't move). A word that differs must point into the same file at the same offset in both builds, or it isn't an address at all. Add what each file's own structure gives anyway (header fields, import table, DLL reference table, export directory) and you have its relocations.
 - Results: 222 ROM programs in the 450 build, 331,178 address words found. Recover from some builds, rebuild at the address a held-out build used and compare, and 607 of 607 rebuilds are byte-identical to Psion's. The 92 lowest files (the kernel side, the file server, the drivers, Eikon) sit at the same address in all five 45x builds, so there is only one witness for them. They are left where they are, and nothing needs them moved.
 - The tool handles some traps. Some text looks like an address, such as the four letters "DHCP" in one network driver (91 such words in all). The import table's length isn't in any header. There are also pointers to a file's very end, and files that differ in version in one build.
-- A third-party Series 5mx Pro image in the community collection, 11 MB where Psion's are 16 MB, turns out to have been laid out afresh the same way. Predicting it from Psion's own five 5mx builds gives 193 of 194 files byte-identical, so it was done on real machines around 2004.
-- To move files down, the prototype packs a base image. It removes Opera, Java, FTP and the wireless status program, then moves everything above 9.5 MB down (186 data files and 23 programs, 13,332 address words rewritten). It refuses to move any program that two builds haven't moved, any whose rebuilds aren't all identical, and any Coda has patched. Then it checks every word of the finished ROM, and stops if anything still points into a moved file's old place. The count is zero.
+- To move files down, the build packs a base image. The first version removed Opera, Java, FTP and the wireless status program, then moved everything above 9.5 MB down (186 data files and 23 programs, 13,332 address words rewritten). The build now uses its own list of removals. It refuses to move any program that two builds haven't moved, any whose rebuilds aren't all identical, and any Coda has patched. Then it checks every word of the finished ROM, and stops if anything still points into a moved file's old place. The count is zero.
 
 Tools: **relocdiff** recovers relocations from the witness builds. **rebase** moves programs and rewrites their addresses. **shrink-check** boots an original and a packed image through the same scripted sessions in the emulator and compares the screens pixel for pixel.
 </details>
@@ -308,7 +307,7 @@ EPOC was built to be extended, and a lot of Coda goes in through EPOC's own fold
 <details>
 <summary><b>Technical detail: putting a program in place of Psion's</b></summary>
 
-Where Coda has its own version of a Psion program (PsiCalc for Calc, PsiSketch for Sketch, PsiRecord for Record), both stay and you choose between them in the Control panel.
+Where Coda has its own version of a Psion program (PsiSketch for Sketch, PsiRecord for Record), both stay and you choose between them in the Control panel. Psion's Calc is the exception. It was removed on 19 November and PsiCalc has taken its place.
 
 - The System screen opens a native file with the program of the file's UID, or a running program that has that UID. I tried swapping the two programs' UIDs first, but Psion's Sketch then refused to start, because its code checks its own UID.
 - The swap is made in the start list instead. The program you chose starts at boot in Psion's slot, and Coda's version gives its task Psion's UID while it runs, so files tapped on the System screen go to it.
@@ -320,7 +319,7 @@ Where Coda has its own version of a Psion program (PsiCalc for Calc, PsiSketch f
 
 **The machine.** I build everything on a Linux box with no special permissions, in a Docker image based on Ubuntu 24.04. The image holds only the tools. The SDK sits outside it so builds are quick.
 
-**The SDK.** I use Psion's EPOC Release 5 C++ SDK, the one Symbian shipped in 1999-2000, in the Linux packaging from the psion_cpp_sdk_linux project. Its compiler is Psion's GCC 3.0 (psion-98r2) targeting ARM, with Psion's binutils 2.9 (psion-98r2). Psion's own Windows tools from the SDK (the resource compiler, the bitmap converter, the installer maker) run under Wine 9.0. Everything is built for the ARMv4 instruction set of the netBook's StrongARM, and also runs on the Series 5mx's ARM710T.
+**The SDK.** I use Psion's EPOC Release 5 C++ SDK, the one Symbian shipped in 1999-2000, in the Linux packaging from the psion_cpp_sdk_linux project. Its compiler is Psion's GCC 3.0 (psion-98r2) targeting ARM, with Psion's binutils 2.9 (psion-98r2). Psion's own Windows tools from the SDK (the resource compiler, the bitmap converter, the installer maker) run under Wine 9.0. Everything is built for the ARMv4 instruction set of the netBook's StrongARM.
 
 **Other tools.** GCC 13.3 builds the host-side tests and tools. The image tools (for reading and writing ROM images, building the image and the card, and checking keys) are written in TypeScript and run on Node 22. Pictures, icons and the boot screen are made with Python 3.12 and Pillow. The few tiny hook stubs are written in ARM assembly.
 
@@ -329,9 +328,8 @@ Where Coda has its own version of a Psion program (PsiCalc for Calc, PsiSketch f
 
 - Each program is a project with an .mmp file. The SDK's makmake turns it into a makefile and GCC compiles each source file to ARM objects. dlltool and ld link against the SDK's import libraries, and petran converts the result into an EPOC executable with its UIDs.
 - Resources are compiled with rcomp, bitmaps with bmconv (four-grey or 256-colour, with separate masks), and the installer is made with makesis from a .pkg file. Coda's programs carry two-digit version numbers, because the EPOC installer only compares major.minor.
-- Everything on the ROM drive has to be an execute-in-place image, as all 185 of Psion's are. An ordinary program put there stops the boot at the splash screen. The image tool therefore does what Symbian's own ROM builder did, at the moment a program is placed. It relocates the code to its ROM address, fills each import slot with the real address of the export it needs (read from that DLL's own place in the same image), writes the DLL reference table after the code, and writes the ROM image header.
+- Everything on the ROM drive has to be an execute-in-place image, as all 222 of Psion's are. An ordinary program put there stops the boot at the splash screen. The image tool therefore does what Symbian's own ROM builder did, at the moment a program is placed. It relocates the code to its ROM address, fills each import slot with the real address of the export it needs (read from that DLL's own place in the same image), writes the DLL reference table after the code, and writes the ROM image header.
 - A program with writable data keeps its initial data in the ROM after its code. It is copied into the process at start, as Psion's own Lexicon and Contacts servers do. A DLL can't have writable data, so a library that needs it is built as a program instead (PsiPDF's engine is one).
-- One source tree builds for both the netBook and the Series 5mx. The differences between the machines (screen size, colour) sit in a small layer chosen at build time.
 - The netBook's StrongARM SA-1100 has no Thumb and no BX instruction, which modern compilers and libraries use to return from functions. Everything is built without it, the build checks every program for stray BX, and hand-written stubs return with a plain move to the program counter.
 - Builds run in a container with Wine, so they need no root and nothing installed on the host beyond Docker.
 </details>
@@ -352,9 +350,9 @@ Tools: the emulator scripts **run**, **seed** and **mkcard** (already public, in
 </details>
 
 
-**The ROMs for testing** are Psion's own builds, kept with the emulator. They are the netBook's v1.05 in its several languages (also the witnesses for the address work above) and the Series 5mx's v1.05.
+**The ROMs for testing** are Psion's own builds, kept with the emulator. They are the netBook's v1.05 in its several languages, which are also the witnesses for the address work above.
 
-**What the emulator can't show.** It doesn't use the boot card as a second disk after starting or model the netBook's passive colour screen, and it can't do networking, infrared or sound recording. Anything to do with the card, the real screen colours or the network gets its proper test on my own netBook, and the diary says which have.
+**What the emulator can't show.** It doesn't use the boot card as a second disk after starting or model the netBook's passive colour screen, and it can't do networking, infrared or sound recording. Anything to do with the card, the real screen colours or the network gets its proper test on my own netBook.
 
 ## From build to netBook
 
@@ -424,7 +422,7 @@ I wrote all these tools for Coda. The emulator scripts and the build container a
 | startup | The Control panel's Start-up list. |
 | psicalc, psisketch, psirecord, psifiles, psiprint, psiamp | Each Coda program put into the image, with its settings and where it appears. |
 
-**The ROM-shrinking work (experimental, not part of the build yet)**
+**The ROM-shrinking work**
 
 | Tool | What it does |
 |---|---|
